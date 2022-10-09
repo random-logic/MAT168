@@ -52,6 +52,7 @@
             \newline Therefore, this problem is feasible.
             \newline When picking the highest bound, the ratio is $\frac{3}{3}$. Since the ratio is positive, this problem is bounded.
             % ?? NEED TO ITERATE
+            % ?? isn't it infeasible due to contradiciton?
     \end{enumerate}
     \newpage
     \item \begin{enumerate} %2
@@ -94,8 +95,25 @@
                 \newline $x_0$ enters and $w_1$ leaves.
                 $\\\zeta = -(w_1 + 3 - x_1 - x_2)$
                 $\\\to \zeta = -w_1 - 3 + x_1 + x_2$
-                $\\ x_0 = w_1 + 3 - x_1 - x_2$
+                $\\ x_0 = 3 + w_1 - x_1 - x_2$
                 $\\ w_2 = 4 - x_1 - 2x_2 + x_0$
+                $\\ x_1, x_2, x_0, w_1, w_2 \geq 0$
+                \newline Start with the solution $x_1, x_2, x_0, w_1, w_2 = 0$.
+                \newline Attempt to replace non-basic variable $x_1$.
+                $\\ x_1 \leq 3$
+                $\\ x_1 \leq 4$
+                \newline $x_1$ enters and $x_0$ leaves.
+                \newline New solution is:
+                $\\x_1 = 3$
+                $\\x_2, x_0, w_1, w_2 = 0$
+                \newline Rewrite constraints.
+                $\\ x_1 = 3 + w_1 - x_0 - x_2$
+                $\\ w_2 = 4 - (3 + w_1 - x_0 - x_2) - 2x_2 + x_0$
+                $\\\to w_2 = 4 - 3 - w_1 + x_0 + x_2 - 2x_2 + x_0$
+                $\\\to w_2 = 1 - w_1 - x_2 + 2x_0$
+                \newline Rewrite objective function.
+                $\\\zeta = -w_1 - 3 + (3 + w_1 - x_0 - x_2) + x_2$
+                $\\\to \zeta = 0 - x_0$
                 % ?? CONTINUE
         \end{enumerate}
     \end{enumerate}
