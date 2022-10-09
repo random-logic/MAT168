@@ -21,127 +21,154 @@
 
 \begin{document}
 \maketitle
-\section{Problem Set}
-\begin{enumerate}
-    \item \begin{enumerate} [label = \roman*] %1
-        \item
-            $\zeta = 6x_1 + 8x_2 + 5x_3 + 9x_4$
-            $\\ w_1 = 8 - 2x_1 - x_2 - x_3 - 3x_4$
-            $\\ w_2 = 2 - x_1 - 3x_2 - x_3 - 2x_4$
-            $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-            \newline This problem is feasible since all constraints are met when $x_1, x_2, x_3, x_4 = 0$.
-            \newline When picking the highest bound, the ratio is $\frac{3}{2}$. Since the ratio is positive, this problem is bounded.
-            % ?? NEED TO ITERATE
-        \item
-            The objective function is unbounded since $x_j$ ($j \in N$ where $N$ is the set of non-basic indexes) can infinitely increase without violating any constraints. Since the objective function is unbounded, it is also feasible.
-        \item 
-            We have to solve the auxiliary problem.
-            $\\\zeta = -x_0$
-            $\\ w_1 = - 1 - 2x_1 - x_2 - x_3 - 3x_4 + x_0$
-            $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
-            $\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-            \newline $x_0$ enters and $w_1$ leaves.
-            $\\\zeta = -(w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4)$
-            $\\\to \zeta = -w_1 - 1 - 2x_1 - x_2 - x_3 - 3x_4$
-            $\\ x_0 = w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4$
-            $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
-            $\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-            \newline This is a feasible dictionary, so we can move on to simplex method.
-            \newline A feasible solution is:
-            $\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 = 0$
-            \newline Therefore, this problem is feasible.
-            \newline When picking the highest bound, the ratio is $\frac{3}{3}$. Since the ratio is positive, this problem is bounded.
-            % ?? NEED TO ITERATE
-            % ?? isn't it infeasible due to contradiciton?
-    \end{enumerate}
-    \newpage
-    \item \begin{enumerate} %2
-        \item \begin{enumerate} [label = \roman*]
-            \item
-                $\zeta = 6x_1 + 8x_2 + 5x_3 + 9x_4$
-                $\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
-                $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4$
-                $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-                \newline By eyeballing the objective function and constraints, no ratio is negative, so the objective function is not unbounded on this iteration.
-                \newline Start with the feasible solution at $x_1, x_2, x_3, x_4, w_1, w_2 = 0$
-                \newline Attempt to replace non-basic variable $x_4$.
-                $\\ w_1 = 5 - 3x_4 \to x_4 = \frac{5}{3}$
-                $\\ w_2 = 3 - 2x_4 \to x_4 = \frac{3}{2}$
-                \newline $x_1, x_2, x_3, w_1, w_2 = 0$
-                \newline $x_4 = \frac{3}{2}$
-                \newline $x_4$ enters and $w_2$ leaves.
-                \newline Rewrite objective function.
-                $\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(3 - x_1 - 3x_2 - x_3 - w_2)$
-                $\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + 27 - 9x_1 - 27x_2 - 9x_3 - 9w_2$
-                $\\\to \zeta = - 3x_1 - 19x_2 - 4x_3 - 9w_2 + 27$
-                \newline Rewrite constraints.
-                $\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
-                $\\ 2x_4 = 3 - x_1 - 3x_2 - x_3 - w_2$
-                $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-                \newline Decreasing $x_1, x_2, x_3, w_2$ would violate a constraint. Increasing $x_1, x_2, x_3, w_2$ would only decrease the objective function. Therefore, the optimal solution is at:
-                \newline $x_1, x_2, x_3 = 0$
-                \newline $x_4 = \frac{3}{2}$
-            \item
-                We have to do the auxiliary problem since there exists $b_i$ ($i \in B$ where $B$ is is the set of basic indexes) such that $b_i < 0$.
-                $\\\zeta = -x_0$
-                $\\ -x_1 - x_2 - x_0 \leq -3$
-                $\\ -x_1 + x_2 - x_0 \leq -1$
-                $\\ x_1 + 2x_2 - x_0 \leq 4$
-                $\\ x_1, x_2, x_0 \geq 0$
-                \newline Rewrite constraints.
-                $\\ w_1 = - 3 + x_1 + x_2 + x_0$
-                $\\ w_2 = 4 - x_1 - 2x_2 + x_0$
-                $\\ w_1, w_2 \geq 0$
-                \newline $x_0$ enters and $w_1$ leaves.
-                $\\\zeta = -(w_1 + 3 - x_1 - x_2)$
-                $\\\to \zeta = -w_1 - 3 + x_1 + x_2$
-                $\\ x_0 = 3 + w_1 - x_1 - x_2$
-                $\\ w_2 = 4 - x_1 - 2x_2 + x_0$
-                $\\ x_1, x_2, x_0, w_1, w_2 \geq 0$
-                \newline Start with the solution $x_1, x_2, x_0, w_1, w_2 = 0$.
-                \newline Attempt to replace non-basic variable $x_1$.
-                $\\ x_1 \leq 3$
-                $\\ x_1 \leq 4$
-                \newline $x_1$ enters and $x_0$ leaves.
-                \newline New solution is:
-                $\\x_1 = 3$
-                $\\x_2, x_0, w_1, w_2 = 0$
-                \newline Rewrite constraints.
-                $\\ x_1 = 3 + w_1 - x_0 - x_2$
-                $\\ w_2 = 4 - (3 + w_1 - x_0 - x_2) - 2x_2 + x_0$
-                $\\\to w_2 = 4 - 3 - w_1 + x_0 + x_2 - 2x_2 + x_0$
-                $\\\to w_2 = 1 - w_1 - x_2 + 2x_0$
-                \newline Rewrite objective function.
-                $\\\zeta = -w_1 - 3 + (3 + w_1 - x_0 - x_2) + x_2$
-                $\\\to \zeta = 0 - x_0$
-                % ?? CONTINUE
-        \end{enumerate}
-    \end{enumerate}
-    \newpage
-    \item %3
-    \newpage
-    \item %4
-        Let $\textbf{x} = \{x\}_{i=1}^6$ = amount imported of cotton, thread, glue, shoes, jumpsuits, hats, and $\textbf{c} = \{c\}_{i=1}^6$ be the cost of importing each of these raw materials and completed items.
-        \newline We are producing some items in our factory. Let $\textbf{q} = \{q\}_{i=4}^6$ = amount of shoes, jumpsuits, hats produced.
-        \newline Manufacturing consumes materials. Let matrix $A = [a_{i,j}]$ where $\{j\}_1^3$ = cotton, thread, glue needed for each product and $\{i\}_1^3$ = recipe for shoes, jumpsuits, and hats.
-        \newline We want to minimize our total cost (import and production costs). Our objective is to minimize $\textbf{c}+\textbf{q}*d$ or to maximize $-\textbf{c}-\textbf{q}*d$. We can write our objective function as:
-        $\\\zeta = -\textbf{c}-\textbf{q}*d$
-        \newline Let the colonists' requirements (the minimum amount of clothing needed) be some constraints. The constraints are as shown:
-        $\\x_4 + q_4 \geq 2n$
-        $\\x_5 + q_5 \geq 3n$
-        $\\x_6 + q_6 \geq n$
-        \newline Manufacturing is limited to the materials imported. The additional constraints are as shown:
-        $\\q_4*a_{1,1} + q_5*a_{1,2} + q_6*a_{1,3} \leq x_1$
-        $\\q_4*a_{2,1} + q_5*a_{2,2} + q_6*a_{2,3} \leq x_2$
-        $\\q_4*a_{3,1} + q_5*a_{3,2} + q_6*a_{3,3} \leq x_3$
-        \newline In general, whenever $n$ increases, both $\textbf{x}$ and $\textbf{c}$ will increase too. Whenever $n$ decreases, both $\textbf{x}$ and $\textbf{c}$ will decrease too. This makes sense because more clothing is needed when more people are in the colony, thus increasing the cost. On the other side, less clothing is needed when less people are in the colony, thus decreasing the cost.
-\end{enumerate}
+\section*{Problem Set}
+\subsection*{Question 1}
+\subsubsection*{Part 1}
+$\zeta = 6x_1 + 8x_2 + 5x_3 + 9x_4$
+$\\ w_1 = 8 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ w_2 = 2 - x_1 - 3x_2 - x_3 - 2x_4$
+$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+\newline This problem is feasible since all constraints are met when $x_1, x_2, x_3, x_4 = 0$.
+\newline When picking the highest bound, the ratio is $\frac{3}{2}$. Since the ratio is positive, this problem is bounded.
+% ?? NEED TO ITERATE
+
+\subsubsection*{Part 2}
+The objective function is unbounded since $x_j$ ($j \in N$ where $N$ is the set of non-basic indexes) can infinitely increase without violating any constraints. Since the objective function is unbounded, it is also feasible.
+
+\subsubsection*{Part 3}
+We have to solve the auxiliary problem.
+$\\\zeta = -x_0$
+$\\ w_1 = - 1 - 2x_1 - x_2 - x_3 - 3x_4 + x_0$
+$\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
+$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+\newline $x_0$ enters and $w_1$ leaves.
+$\\\zeta = -(w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4)$
+$\\\to \zeta = -w_1 - 1 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ x_0 = w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4$
+$\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
+$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+\newline This is a feasible dictionary, so we can move on to simplex method.
+\newline A feasible solution is:
+$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 = 0$
+\newline Therefore, this problem is feasible.
+\newline When picking the highest bound, the ratio is $\frac{3}{3}$. Since the ratio is positive, this problem is bounded.
+% ?? NEED TO ITERATE
+% ?? isn't it infeasible due to contradiciton?
 
 \newpage
-\section{Collaboration}
+\subsection*{Question 2a}
+\subsubsection*{Part 1}
+$\zeta = 6x_1 + 8x_2 + 5x_3 + 9x_4$
+$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4$
+$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+\newline By eyeballing the objective function and constraints, no ratio is negative, so the objective function is not unbounded on this iteration.
+\newline Start with the feasible solution at $x_1, x_2, x_3, x_4, w_1, w_2 = 0$
+\newline Attempt to replace non-basic variable $x_4$.
+$\\ w_1 = 5 - 3x_4 \to x_4 = \frac{5}{3}$
+$\\ w_2 = 3 - 2x_4 \to x_4 = \frac{3}{2}$
+\newline $x_1, x_2, x_3, w_1, w_2 = 0$
+\newline $x_4 = \frac{3}{2}$
+\newline $x_4$ enters and $w_2$ leaves.
+\newline Rewrite objective function.
+$\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(3 - x_1 - 3x_2 - x_3 - w_2)$
+$\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + 27 - 9x_1 - 27x_2 - 9x_3 - 9w_2$
+$\\\to \zeta = - 3x_1 - 19x_2 - 4x_3 - 9w_2 + 27$
+\newline Rewrite constraints.
+$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ 2x_4 = 3 - x_1 - 3x_2 - x_3 - w_2$
+$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+\newline Decreasing $x_1, x_2, x_3, w_2$ would violate a constraint. Increasing $x_1, x_2, x_3, w_2$ would only decrease the objective function. Therefore, the optimal solution is at:
+\newline $x_1, x_2, x_3 = 0$
+\newline $x_4 = \frac{3}{2}$
+
+\subsubsection*{Part 2}
+We have to do the auxiliary problem since there exists $b_i$ ($i \in B$ where $B$ is is the set of basic indexes) such that $b_i < 0$.
+$\\\zeta = -x_0$
+$\\ -x_1 - x_2 - x_0 \leq -3$
+$\\ -x_1 + x_2 - x_0 \leq -1$
+$\\ x_1 + 2x_2 - x_0 \leq 4$
+$\\ x_1, x_2, x_0 \geq 0$
+\newline Rewrite constraints.
+$\\ x_3 = - 3 + x_1 + x_2 + x_0$
+$\\ x_4 = 4 - x_1 - 2x_2 + x_0$
+$\\ x_3, x_4 \geq 0$
+\newline $x_0$ enters and $x_3$ leaves.
+$\\\zeta = -(x_3 + 3 - x_1 - x_2)$
+$\\\to \zeta = -x_3 - 3 + x_1 + x_2$
+$\\ x_0 = 3 + x_3 - x_1 - x_2$
+$\\ x_4 = 4 - x_1 - 2x_2 + x_0$
+$\\ x_1, x_2, x_0, x_3, x_4 \geq 0$
+\newline Start with the solution $x_1, x_2, x_0, x_3, x_4 = 0$.
+\newline Attempt to replace non-basic variable $x_1$.
+$\\ x_1 \leq 3$
+$\\ x_1 \leq 4$
+\newline $x_1$ enters and $x_0$ leaves.
+\newline New solution is:
+$\\x_1 = 3$
+$\\x_2, x_0, x_3, x_4 = 0$
+\newline Rewrite constraints.
+$\\ x_1 = 3 + x_3 - x_0 - x_2$
+$\\ x_4 = 4 - (3 + x_3 - x_0 - x_2) - 2x_2 + x_0$
+$\\\to x_4 = 4 - 3 - x_3 + x_0 + x_2 - 2x_2 + x_0$
+$\\\to x_4 = 1 - x_3 - x_2 + 2x_0$
+$\\ x_1, x_2, x_0, x_3, x_4 \geq 0$
+\newline Rewrite objective function.
+$\\\zeta = -x_3 - 3 + (3 + x_3 - x_0 - x_2) + x_2$
+$\\\to \zeta = 0 - x_0$
+\newline Do simplex.
+$\\\zeta = 3 + x_3 - x_2 + 3x_2$
+$\\\to \zeta = 3 + x_3 + 2x_2$
+$\\ x_1 = 3 + x_3 - x_2$
+$\\ x_4 = 1 - x_3 - x_2$
+$\\ x_1, x_2, x_0, x_3, x_4 \geq 0$
+\newline Attempt to replace non-basic variable $x_3$.
+$\\-x_3 + 3 \leq 3 \to x_3 \geq 0$
+$\\x_3 \leq 1$
+\newline $x_3$ enters and $x_4$ leaves.
+\newline New solution is:
+$\\x_1 = 3$
+$\\x_3 = 1$
+$\\x_2, x_0, x_4 = 0$
+\newline Rewrite constraints:
+$\\ x_1 = 3 + x_3 - x_2$
+$\\ x_3 = 1 - x_2 - x_4$
+$\\ x_1, x_2, x_0, x_3, x_4 \geq 0$
+\newline Rewrite objective function:
+$\\\zeta = 3 + 1 - x_2 - x_4 + 2x_2$
+$\\\to \zeta = 4 - x_2 - x_4 + 2x_2$
+\newline Attempt to replace non-basic variable $x_2$.
+$\\ x_2 + 3 - 1 \leq 3 \to x_2 \leq 1$
+$\\ x_2 + 1 \leq 1 \to x_2 \leq 0$
+\newline We cannot increase $x_2$ since that would violate our constraint. Increasing any other variables would decrease our objective function. The most optimal solution is:
+$\\x_1 = 3$
+$\\x_2 = 0$
 
 \newpage
-\section{Academic Integrity}
+\subsection*{Question 3}
+
+\newpage
+\subsection*{Question 4}
+Let $\textbf{x} = \{x\}_{i=1}^6$ = amount imported of cotton, thread, glue, shoes, jumpsuits, hats, and $\textbf{c} = \{c\}_{i=1}^6$ be the cost of importing each of these raw materials and completed items.
+\newline We are producing some items in our factory. Let $\textbf{q} = \{q\}_{i=4}^6$ = amount of shoes, jumpsuits, hats produced.
+\newline Manufacturing consumes materials. Let matrix $A = [a_{i,j}]$ where $\{j\}_1^3$ = cotton, thread, glue needed for each product and $\{i\}_1^3$ = recipe for shoes, jumpsuits, and hats.
+\newline We want to minimize our total cost (import and production costs). Our objective is to minimize $\textbf{c}+\textbf{q}*d$ or to maximize $-\textbf{c}-\textbf{q}*d$. We can write our objective function as:
+$\\\zeta = -\textbf{c}-\textbf{q}*d$
+\newline Let the colonists' requirements (the minimum amount of clothing needed) be some constraints. The constraints are as shown:
+$\\x_4 + q_4 \geq 2n$
+$\\x_5 + q_5 \geq 3n$
+$\\x_6 + q_6 \geq n$
+\newline Manufacturing is limited to the materials imported. The additional constraints are as shown:
+$\\q_4*a_{1,1} + q_5*a_{1,2} + q_6*a_{1,3} \leq x_1$
+$\\q_4*a_{2,1} + q_5*a_{2,2} + q_6*a_{2,3} \leq x_2$
+$\\q_4*a_{3,1} + q_5*a_{3,2} + q_6*a_{3,3} \leq x_3$
+\newline In general, whenever $n$ increases, both $\textbf{x}$ and $\textbf{c}$ will increase too. Whenever $n$ decreases, both $\textbf{x}$ and $\textbf{c}$ will decrease too. This makes sense because more clothing is needed when more people are in the colony, thus increasing the cost. On the other side, less clothing is needed when less people are in the colony, thus decreasing the cost.
+
+\newpage
+\section*{Collaboration}
+
+\newpage
+\section*{Academic Integrity}
 On my personal integrity as a student and member of the UCD community, I have not given, nor received and unauthorized assistance on this assignment.
 \newline Signature: Andrew Jowe
 \end{document}
