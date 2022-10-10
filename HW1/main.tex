@@ -84,21 +84,24 @@ $x_4 = \frac{3}{2}$
 
 $x_4$ enters and $w_2$ leaves.
 
+Rewrite constraints.
+$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ 2x_4 = 3 - x_1 - 3x_2 - x_3 - w_2$
+$\\\to x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
+$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+
 Rewrite objective function.
 $\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(3 - x_1 - 3x_2 - x_3 - w_2)$
 $\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + 27 - 9x_1 - 27x_2 - 9x_3 - 9w_2$
 $\\\to \zeta = - 3x_1 - 19x_2 - 4x_3 - 9w_2 + 27$
-
-Rewrite constraints.
-$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
-$\\ 2x_4 = 3 - x_1 - 3x_2 - x_3 - w_2$
-$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
 Decreasing $x_1, x_2, x_3, w_2$ would violate a constraint. Increasing $x_1, x_2, x_3, w_2$ would only decrease the objective function. Therefore, the optimal solution is at:
 
 $x_1, x_2, x_3 = 0$
 
 $x_4 = \frac{3}{2}$
+
+% ?? Messed up when rewriting objective function (thx bro for letting me know)
 
 \subsubsection*{Part 2}
 We have to do the auxiliary problem since there exists $b_i$ ($i \in B$ where $B$ is is the set of basic indexes) such that $b_i < 0$.
