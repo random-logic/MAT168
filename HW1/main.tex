@@ -141,7 +141,7 @@ $\\ x_1 \leq \frac{1}{2}$
 
 \bigskip New solution is:
 $\\x_1 = \frac{1}{2}$
-$\\x_2, x_0, x_3, x_5 = 0$
+$\\x_2, x_0, x_3, x_4, x_5 = 0$
 
 \bigskip Rewrite constraints.
 $\\ x_0 = 3 + x_3 - (\frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5) - x_2$
@@ -159,7 +159,22 @@ $\\\to \zeta = \frac{1}{2} + \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
 $\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5$
 $\\ x_4 = 2 - 2x_2 + x_3$
 $\\ x_1 = \frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
-% ?? CONTINUE
+
+\bigskip Attempt to replace non-basic variable $x_2$.
+$\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5 \to x_2$ is unbounded by this equation. 
+$\\ 2x_2 = 2 \to x_2 = 1$
+$\\ \frac{3}{2}x_2 = \frac{1}{2} - \frac{1}{2} \to x_2 = 0$
+
+\bigskip Increasing $x_2$ would violate a constraint.
+
+\bigskip Attempt to replace non-basic variable $x_3$.
+$\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5 \to x_3$ is unbounded by this equation.
+$\\ x_4 = 2 - 2x_2 + x_3$
+$\\ -\frac{1}{2}x_3 = \frac{1}{2} - \frac{1}{2} \to x_3 = 0$
+
+\bigskip Increasing $x_2, x_3$ would violate a constraint. Increasing $x_5$ decreases the objective function. Therefore, the optimal solution is:
+$\\x_1 = \frac{1}{2}$
+$\\x_2, x_0, x_3, x_4, x_5 = 0$
 
 \newpage
 \subsection*{Question 3}
