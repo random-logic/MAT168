@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[17pt]{extarticle}
 
 % Language setting
 % Replace `english' with e.g. `spanish' to change the document language
@@ -51,7 +51,7 @@ $\\ x_0 = w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4$
 $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
 $\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
-This is a feasible dictionary, so we can move on to simplex method.
+This is a feasible dictionary, so we can move on to simplex.
 
 A feasible solution is:
 $\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 = 0$
@@ -70,17 +70,16 @@ $\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
 $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4$
 $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
-By eyeballing the objective function and constraints, no ratio is negative, so the objective function is not unbounded on this iteration.
-
-Start with the feasible solution at $x_1, x_2, x_3, x_4, w_1, w_2 = 0$
+Start with the feasible solution at:
+$\\x_1, x_2, x_3, x_4, w_1, w_2 = 0$
 
 Attempt to replace non-basic variable $x_4$.
 $\\ w_1 = 5 - 3x_4 \to x_4 = \frac{5}{3}$
 $\\ w_2 = 3 - 2x_4 \to x_4 = \frac{3}{2}$
 
-$x_1, x_2, x_3, w_1, w_2 = 0$
-
-$x_4 = \frac{3}{2}$
+New solution:
+$\\x_1, x_2, x_3, w_1, w_2 = 0$
+$\\x_4 = \frac{3}{2}$
 
 $x_4$ enters and $w_2$ leaves.
 
@@ -91,17 +90,22 @@ $\\\to x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \f
 $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
 Rewrite objective function.
-$\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(3 - x_1 - 3x_2 - x_3 - w_2)$
-$\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + 27 - 9x_1 - 27x_2 - 9x_3 - 9w_2$
-$\\\to \zeta = - 3x_1 - 19x_2 - 4x_3 - 9w_2 + 27$
+$\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(\frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2)$
+$\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + \frac{27}{2} - \frac{9}{2}x_1 - \frac{27}{2}x_2 - \frac{9}{2}x_3 - \frac{9}{2}w_2$
+$\\\to \zeta = \frac{27}{2} + \frac{3}{2}x_1 - \frac{11}{2}x_2 + \frac{1}{2}x_3 - \frac{9}{2}w_2$
 
-Decreasing $x_1, x_2, x_3, w_2$ would violate a constraint. Increasing $x_1, x_2, x_3, w_2$ would only decrease the objective function. Therefore, the optimal solution is at:
+Attempt to replace non-basic variable $x_1$.
+$\\ 2x_1 = 5 - 3 * \frac{3}{2} \to x_1 = \frac{1}{2} * \frac{1}{2}$
+$\\ \frac{1}{2}x_1 = \frac{3}{2} - \frac{3}{2} \to x_1 = 0$
 
-$x_1, x_2, x_3 = 0$
+Increasing $x_1$ will violate a constraint. Attempt to replace non-basic variable $x_3$.
+$\\ x_3 = 5 - 3 * \frac{3}{2}$
+$\\ \frac{1}{2}x_3 = \frac{3}{2} - \frac{3}{2} \to x_3 = 0$
 
-$x_4 = \frac{3}{2}$
 
-% ?? Messed up when rewriting objective function (thx bro for letting me know)
+Increasing $x_1, x_3$ will violate a constraint. Increasing $x_2, w_2$ decreases the objective function. Therefore, the optimal solution is:
+$\\x_1, x_2, x_3 = 0$
+$\\x_4 = \frac{3}{2}$
 
 \subsubsection*{Part 2}
 We have to do the auxiliary problem since there exists $b_i$ ($i \in B$ where $B$ is is the set of basic indexes) such that $b_i < 0$.
