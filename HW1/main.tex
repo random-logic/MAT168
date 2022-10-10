@@ -182,7 +182,45 @@ I think the problem with more constraints was more difficult to solve just becau
 
 \newpage
 \subsection*{Question 3}
-% ??
+we want to solve:
+$\\ \zeta = 100x_1 + 10x_2 + x_3$
+$\\ x_1 \leq 1$
+$\\ 20x_1 + x_2 \leq 100$
+$\\ 200x_1 + 20x_2 + x_3 \leq 10000$
+$\\ x_1, x_2, x_3 \geq 0$
+
+\bigskip Rewrite the constraints:
+$\\ w_1 = 1 - x_1$
+$\\ w_2 = 100 - 20x_1 - x_2$
+$\\ w_3 = 10000 - 200x_1 - 20x_2 - x_3$
+$\\ x_1, x_2, x_3, w_1, w_2, w_3 \geq 0$
+
+\bigskip Start with the feasible solution:
+$\\ x_1, x_2, x_3, w_1, w_2, w_3 = 0$
+
+\bigskip Attempt to replace basic variable $x_3$.
+$\\ x_3 = 10000$
+
+\bigskip $x_3$ enters and $w_3$ exits.
+
+\bigskip New solution:
+$\\ x_3 = 10000$
+$\\ x_1, x_2, w_1, w_2, w_3 = 0$
+
+
+\bigskip Rewrite constraints:
+$\\ w_1 = 1 - x_1$
+$\\ w_2 = 100 - 20x_1 - x_2$
+$\\ x_3 = 10000 - 200x_1 - 20x_2 - w_3$
+$\\ x_1, x_2, x_3, w_1, w_2, w_3 \geq 0$
+
+\bigskip Rewrite objective function:
+$\\\zeta = 100x_1 + 10x_2 + (10000 - 200x_1 - 20x_2 - w_3)$
+$\\\to \zeta = 10000 - 100x_1 - 10x_2 - w_3$
+
+\bigskip Increasing any non-basic variables will decrease the objective function. Therefore, the optimal solution is at:
+$\\ x_3 = 10000$
+$\\ x_1, x_2 = 0$
 
 \newpage
 \subsection*{Question 4}
