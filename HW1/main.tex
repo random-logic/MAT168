@@ -114,13 +114,13 @@ $\\ -x_1 + x_2 - x_0 \leq -1$
 $\\ x_1 + 2x_2 - x_0 \leq 4$
 $\\ x_1, x_2, x_0 \geq 0$
 
-Rewrite constraints.
+\bigskip Rewrite constraints.
 $\\ x_3 = - 3 + x_1 + x_2 + x_0$
 $\\ x_4 = - 1 + x_1 - x_2 + x_0$
 $\\ x_5 = 4 - x_1 - 2x_2 + x_0$
 $\\ x_3, x_4, x_5 \geq 0$
 
-$x_0$ enters and $x_3$ leaves.
+\bigskip $x_0$ enters and $x_3$ leaves.
 $\\\zeta = -(x_3 + 3 - x_1 - x_2)$
 $\\\to \zeta = -x_3 - 3 + x_1 + x_2$
 $\\ x_0 = 3 + x_3 - x_1 - x_2$
@@ -130,66 +130,31 @@ $\\ x_5 = 4 - x_1 - 2x_2 + (3 + x_3 - x_1 - x_2)$
 $\\\to x_5 = 1 - 2x_1 - 3x_2 + x_3$
 $\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
-Start with the solution at:
+\bigskip Start with the solution at:
 $\\x_1, x_2, x_0, x_3, x_4, x_5 = 0$
 
-Attempt to replace non-basic variable $x_1$.
+\bigskip Attempt to replace non-basic variable $x_1$.
 $\\ x_1 \leq 3$
 $\\ x_1 \leq \frac{1}{2}$
 
-$x_1$ enters and $x_5$ leaves.
+\bigskip $x_1$ enters and $x_5$ leaves.
 
-New solution is:
+\bigskip New solution is:
 $\\x_1 = \frac{1}{2}$
 $\\x_2, x_0, x_3, x_5 = 0$
 
-Rewrite constraints.
+\bigskip Rewrite constraints.
 $\\ x_0 = 3 + x_3 - (\frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5) - x_2$
 $\\\to x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5$
 $\\ x_4 = 2 - 2x_2 + x_3$
 $\\ x_1 = \frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
 
-Rewrite objective function.
+\bigskip Rewrite objective function.
 $\\\zeta = -x_3 - 3 + (\frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5) + x_2$
 $\\\to \zeta = - \frac{5}{2} - \frac{1}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}x_5$
 
-Dictionary is now feasible and $-x_0$ is maximized. Do simplex.
+\bigskip Dictionary is now feasible and $-x_0$ is maximized. Do simplex.
 %% ?? Truncate bottom and restart, maximize original with the given dictionaries
-
-$\\\zeta = 3 + x_3 - x_2 + 3x_2$
-$\\\to \zeta = 3 + x_3 + 2x_2$
-$\\ x_1 = 3 + x_3 - x_2$
-$\\ x_5 = 1 - x_3 - x_2$
-$\\ x_1, x_2, x_0, x_3, x_5 \geq 0$
-
-Attempt to replace non-basic variable $x_3$.
-$\\-x_3 + 3 \leq 3 \to x_3 \geq 0$
-$\\x_3 \leq 1$
-
-$x_3$ enters and $x_5$ leaves.
-
-New solution is:
-$\\x_1 = 3$
-$\\x_3 = 1$
-$\\x_2, x_0, x_5 = 0$
-
-Rewrite constraints:
-$\\ x_1 = 3 + x_3 - x_2$
-$\\ x_3 = 1 - x_2 - x_5$
-$\\ x_1, x_2, x_0, x_3, x_5 \geq 0$
-
-Rewrite objective function:
-$\\\zeta = 3 + 1 - x_2 - x_5 + 2x_2$
-$\\\to \zeta = 4 - x_2 - x_5 + 2x_2$
-
-Attempt to replace non-basic variable $x_2$.
-$\\ x_2 + 3 - 1 \leq 3 \to x_2 \leq 1$
-$\\ x_2 + 1 \leq 1 \to x_2 \leq 0$
-
-We cannot increase $x_2$ since that would violate our constraint. Increasing any other variables would decrease our objective function. The most optimal solution is:
-$\\x_1 = 3$
-$\\x_2 = 0$
-
 % ?? oops, forgot a constraint :(
 
 \newpage
@@ -199,24 +164,24 @@ $\\x_2 = 0$
 \subsection*{Question 4}
 Let $\textbf{x} = \{x\}_{i=1}^6$ = amount imported of cotton, thread, glue, shoes, jumpsuits, hats, and $\textbf{c} = \{c\}_{i=1}^6$ be the cost of importing each of these raw materials and completed items.
 
-We are producing some items in our factory. Let $\textbf{q} = \{q\}_{i=4}^6$ = amount of shoes, jumpsuits, hats produced.
+\bigskip We are producing some items in our factory. Let $\textbf{q} = \{q\}_{i=4}^6$ = amount of shoes, jumpsuits, hats produced.
 
-Manufacturing consumes materials. Let matrix $A = [a_{i,j}]$ where $\{j\}_1^3$ = cotton, thread, glue needed for each product and $\{i\}_1^3$ = recipe for shoes, jumpsuits, and hats.
+\bigskip Manufacturing consumes materials. Let matrix $A = [a_{i,j}]$ where $\{j\}_1^3$ = cotton, thread, glue needed for each product and $\{i\}_1^3$ = recipe for shoes, jumpsuits, and hats.
 
-We want to minimize our total cost (import and production costs). Our objective is to minimize $\textbf{c}+\textbf{q}*d$ or to maximize $-\textbf{c}-\textbf{q}*d$. We can write our objective function as:
+\bigskip We want to minimize our total cost (import and production costs). Our objective is to minimize $\textbf{c}+\textbf{q}*d$ or to maximize $-\textbf{c}-\textbf{q}*d$. We can write our objective function as:
 $\\\zeta = -\textbf{c}-\textbf{q}*d$
 
-Let the colonists' requirements (the minimum amount of clothing needed) be some constraints. The constraints are as shown:
+\bigskip Let the colonists' requirements (the minimum amount of clothing needed) be some constraints. The constraints are as shown:
 $\\x_4 + q_4 \geq 2n$
 $\\x_5 + q_5 \geq 3n$
 $\\x_6 + q_6 \geq n$
 
-Manufacturing is limited to the materials imported. The additional constraints are as shown:
+\bigskip Manufacturing is limited to the materials imported. The additional constraints are as shown:
 $\\q_4*a_{1,1} + q_5*a_{1,2} + q_6*a_{1,3} \leq x_1$
 $\\q_4*a_{2,1} + q_5*a_{2,2} + q_6*a_{2,3} \leq x_2$
 $\\q_4*a_{3,1} + q_5*a_{3,2} + q_6*a_{3,3} \leq x_3$
 
-In general, whenever $n$ increases, both $\textbf{x}$ and $\textbf{c}$ will increase too. Whenever $n$ decreases, both $\textbf{x}$ and $\textbf{c}$ will decrease too. This makes sense because more clothing is needed when more people are in the colony, thus increasing the cost. On the other side, less clothing is needed when less people are in the colony, thus decreasing the cost.
+\bigskip In general, whenever $n$ increases, both $\textbf{x}$ and $\textbf{c}$ will increase too. Whenever $n$ decreases, both $\textbf{x}$ and $\textbf{c}$ will decrease too. This makes sense because more clothing is needed when more people are in the colony, thus increasing the cost. On the other side, less clothing is needed when less people are in the colony, thus decreasing the cost.
 
 \newpage
 \section*{Collaboration}
