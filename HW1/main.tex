@@ -32,36 +32,17 @@ $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 \bigskip This problem is feasible since all constraints are met when:
 $\\x_1, x_2, x_3, x_4 = 0$
 
-When picking the highest bound, the ratio is $\frac{3}{2}$. Since the ratio is positive, this problem is bounded.
-% ?? NEED TO ITERATE
+\bigskip This problem is bounded because for any $x_i$, it is bounded when all other $x_j = 0$ such that $i \neq j$. 
 
 \subsubsection*{Part 2}
-The objective function is unbounded since $x_j$ ($j \in N$ where $N$ is the set of non-basic indexes) can infinitely increase without violating any constraints. Since the objective function is unbounded, it is also feasible.
+This problem is feasible since $x_1, x_2, x_3, x_4 = 50$ satisfies all constraints.
+
+\bigskip This problem is unbounded since increasing $x_1$ to infinity will still satisfy all constraints.
 
 \subsubsection*{Part 3}
-We have to solve the auxiliary problem.
-$\\\zeta = -x_0$
-$\\ w_1 = - 1 - 2x_1 - x_2 - x_3 - 3x_4 + x_0$
-$\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
-$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+This problem is infeasible because $x_1, x_2, x_3, x_4$ cannot be less than zero due to a constraint. But, when $x_1, x_2, x_3, x_4 = 0$, the constraint $2x_1+x_2+x_3+3x_4 \leq -1$ isn't satisfied.
 
-$x_0$ enters and $w_1$ leaves.
-$\\\zeta = -(w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4)$
-$\\\to \zeta = -w_1 - 1 - 2x_1 - x_2 - x_3 - 3x_4$
-$\\ x_0 = w_1 + 1 + 2x_1 + x_2 + x_3 + 3x_4$
-$\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4 + x_0$
-$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
-
-This is a feasible dictionary, so we can move on to simplex.
-
-A feasible solution is:
-$\\ x_0, x_1, x_2, x_3, x_4, w_1, w_2 = 0$
-
-Therefore, this problem is feasible.
-
-When picking the highest bound, the ratio is $\frac{3}{3}$. Since the ratio is positive, this problem is bounded.
-% ?? NEED TO ITERATE
-% ?? isn't it infeasible due to contradiciton?
+\bigskip This problem is bounded because for any $x_i$, it is bounded when all other $x_j = 0$ such that $i \neq j$.
 
 \newpage
 \subsection*{Question 2a}
@@ -71,41 +52,34 @@ $\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
 $\\ w_2 = 3 - x_1 - 3x_2 - x_3 - 2x_4$
 $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
-\bigskip Start with the feasible solution at:
-$\\x_1, x_2, x_3, x_4, w_1, w_2 = 0$
-
 \bigskip Attempt to replace non-basic variable $x_4$.
 $\\ w_1 = 5 - 3x_4 \to x_4 = \frac{5}{3}$
 $\\ w_2 = 3 - 2x_4 \to x_4 = \frac{3}{2}$
 
-\bigskip New solution:
-$\\x_1, x_2, x_3, w_1, w_2 = 0$
-$\\x_4 = \frac{3}{2}$
-
 \bigskip $x_4$ enters and $w_2$ leaves.
 
 \bigskip Rewrite constraints.
-$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3x_4$
+$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - 3(\frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2)$
+$\\ w_1 = 5 - 2x_1 - x_2 - x_3 - \frac{9}{2} + \frac{3}{2}x_1 + \frac{9}{2}x_2 + \frac{3}{2}x_3 + \frac{3}{2}w_2$
+$\\ w_1 = \frac{1}{2} - \frac{1}{2}x_1 + \frac{7}{2}x_2 + \frac{1}{2}x_3 + \frac{3}{2}w_2$
+
 $\\ 2x_4 = 3 - x_1 - 3x_2 - x_3 - w_2$
-$\\\to x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
-$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
+$\\ x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
 
 \bigskip Rewrite objective function.
 $\\\zeta = 6x_1 + 8x_2 + 5x_3 + 9(\frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2)$
-$\\\to \zeta = 6x_1 + 8x_2 + 5x_3 + \frac{27}{2} - \frac{9}{2}x_1 - \frac{27}{2}x_2 - \frac{9}{2}x_3 - \frac{9}{2}w_2$
-$\\\to \zeta = \frac{27}{2} + \frac{3}{2}x_1 - \frac{11}{2}x_2 + \frac{1}{2}x_3 - \frac{9}{2}w_2$
+$\\\zeta = 6x_1 + 8x_2 + 5x_3 + \frac{27}{2} - \frac{9}{2}x_1 - \frac{27}{2}x_2 - \frac{9}{2}x_3 - \frac{9}{2}w_2$
+$\\\zeta = \frac{27}{2} + \frac{3}{2}x_1 - \frac{11}{2}x_2 + \frac{1}{2}x_3 - \frac{9}{2}w_2$
+
+\bigskip New objective function and constraints.
+$\\\zeta = \frac{27}{2} + \frac{3}{2}x_1 - \frac{11}{2}x_2 + \frac{1}{2}x_3 - \frac{9}{2}w_2$
+$\\ w_1 = \frac{1}{2} - \frac{1}{2}x_1 + \frac{7}{2}x_2 + \frac{1}{2}x_3 + \frac{3}{2}w_2$
+$\\ x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
+$\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
 \bigskip Attempt to replace non-basic variable $x_1$.
-$\\ 2x_1 = 5 - 3 * \frac{3}{2} \to x_1 = \frac{1}{2} * \frac{1}{2}$
-$\\ \frac{1}{2}x_1 = \frac{3}{2} - \frac{3}{2} \to x_1 = 0$
-
-\bigskip Increasing $x_1$ will violate a constraint. Attempt to replace non-basic variable $x_3$.
-$\\ x_3 = 5 - 3 * \frac{3}{2}$
-$\\ \frac{1}{2}x_3 = \frac{3}{2} - \frac{3}{2} \to x_3 = 0$
-
-\bigskip Increasing $x_1, x_3$ will violate a constraint. Increasing $x_2, w_2$ decreases the objective function. Therefore, the optimal solution is:
-$\\x_1, x_2, x_3 = 0$
-$\\x_4 = \frac{3}{2}$
+$\\ w_1 = \frac{1}{2} - \frac{1}{2}x_1 + \frac{7}{2}x_2 + \frac{1}{2}x_3 + \frac{3}{2}w_2$
+$\\ x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
 
 \subsubsection*{Part 2}
 Auxiliary problem.
@@ -141,17 +115,10 @@ $\\ x_4 = 2 - 2x_2 + x_3$
 $\\ x_5 = 7 - 2x_1 - 3x_2 + x_3$
 $\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
-\bigskip Initial solution:
-$\\ x_1, x_2, x_0, x_3, x_4, x_5 = 0$
-
 \bigskip Attempt to move $x_2$.
 $\\ x_2 = 3$
 $\\ x_2 = 1$
 $\\ x_2 = \frac{7}{3}$
-
-\bigskip New solution:
-$\\ x_2 = 1$
-$\\ x_1, x_0, x_3, x_4, x_5 = 0$
 
 \bigskip $x_2$ enters and $x_4$ leaves.
 $\\ \zeta = -x_3 - 3 + x_1 + (1 + \frac{1}{2}x_3 - \frac{1}{2}x_4)$
@@ -175,12 +142,7 @@ $\\ x_5 = 4 - 2x_1 - \frac{1}{2}x_3 + \frac{3}{2}x_4$
 $\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
 \bigskip Attempt to move $x_1$.
-$x_1 = 2$
-
-\bigskip New solution:
-$x_1 = 2$
-$x_2 = 1$
-$x_0, x_3, x_4, x_5$
+$\\x_1 = 2$
 
 \bigskip $x_1$ enters and $x_0$ leaves.
 $\\ \zeta = - 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 - x_0 - \frac{1}{2}x_3 - \frac{1}{2}x_4$
@@ -203,8 +165,8 @@ $\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
 \bigskip Do simplex. Replace $-x_0$ in objective function with $x_1 + 3x_2$.
 $\\ \zeta = x_1 + 3x_2$
-$\\ \zeta = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 + 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
-$\\ \zeta = 3 + x_3$
+$\\ \zeta = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 + 1 + \frac{3}{2}x_3 - \frac{3}{2}x_4$
+$\\ \zeta = 3 + 2x_3 - x_4$
 
 \bigskip New objective function and constraints.
 $\\ \zeta = 3 + x_3$
@@ -214,14 +176,26 @@ $\\ x_5 = - \frac{3}{2}x_3 + \frac{1}{2}x_4$
 $\\ x_1, x_2, x_3, x_4, x_5 \geq 0$
 
 \bigskip Attempt to replace $x_3$.
-$\\ -\frac{1}{2}x_3 = 2 - 2 \to x_3 = 0$
+$\\ x_3 = 0$
 
-\bigskip $x_3$ cannot be increased since a constraint would be violated. Therefore, the optimal solution is at:
+\bigskip $x_3$ enters and $x_5$ exits.
+
+\bigskip Rewrite constraints:
+$\\ x_1 = 2 + \frac{1}{2}(\frac{1}{3}x_4 - \frac{2}{3}x_5) + \frac{1}{2}x_4$
+
+$\\ x_2 = 1 + \frac{1}{2}(\frac{1}{3}x_4 - \frac{2}{3}x_5) - \frac{1}{2}x_4$
+
+$\\ \frac{3}{2}x_3 = \frac{1}{2}x_4 - x_5$
+$\\ x_3 = \frac{1}{3}x_4 - \frac{2}{3}x_5$
+
+\bigskip Rewrite objective function:
+$\\ \zeta = 3 + 2(\frac{1}{3}x_4 - \frac{2}{3}x_5) - x_4$
+$\\ \zeta = 3 - \frac{4}{3}x_5 - \frac{1}{3}x_4$
+
+\bigskip The optimal solution is:
 $\\ x_1 = 2$
 $\\ x_2 = 1$
 $\\ \zeta = x_1 + 3x_2 = 5$
-
-% ?? CONTINUE
 
 \newpage
 \subsection*{Question 2b}
@@ -242,18 +216,10 @@ $\\ w_2 = 100 - 20x_1 - x_2$
 $\\ w_3 = 10000 - 200x_1 - 20x_2 - x_3$
 $\\ x_1, x_2, x_3, w_1, w_2, w_3 \geq 0$
 
-\bigskip Start with the feasible solution:
-$\\ x_1, x_2, x_3, w_1, w_2, w_3 = 0$
-
 \bigskip Attempt to replace basic variable $x_3$.
 $\\ x_3 = 10000$
 
 \bigskip $x_3$ enters and $w_3$ exits.
-
-\bigskip New solution:
-$\\ x_3 = 10000$
-$\\ x_1, x_2, w_1, w_2, w_3 = 0$
-
 
 \bigskip Rewrite constraints:
 $\\ w_1 = 1 - x_1$
@@ -268,6 +234,7 @@ $\\\to \zeta = 10000 - 100x_1 - 10x_2 - w_3$
 \bigskip Increasing any non-basic variables will decrease the objective function. Therefore, the optimal solution is at:
 $\\ x_3 = 10000$
 $\\ x_1, x_2 = 0$
+$\zeta = 10000$
 
 \newpage
 \subsection*{Question 4}
@@ -294,6 +261,13 @@ $\\q_4*a_{3,1} + q_5*a_{3,2} + q_6*a_{3,3} \leq x_3$
 
 \newpage
 \section*{Collaboration}
+All collaborators are listed below:
+\begin{enumerate}
+    \item Anne
+    \item Fengqin
+    \item Sterling
+    \item Zhongning
+\end{enumerate}
 
 \newpage
 \section*{Academic Integrity}
