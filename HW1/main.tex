@@ -81,6 +81,41 @@ $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 $\\ w_1 = \frac{1}{2} - \frac{1}{2}x_1 + \frac{7}{2}x_2 + \frac{1}{2}x_3 + \frac{3}{2}w_2$
 $\\ x_4 = \frac{3}{2} - \frac{1}{2}x_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
 
+\bigskip $x_1$ enters, $w_1$ leaves.
+$\\ \frac{1}{2}x_1 = \frac{1}{2} + \frac{7}{2}x_2 + \frac{1}{2}x_3 + \frac{3}{2}w_2 - w_1$
+$\\ x_1 = 1 + 7x_2 + x_3 + 3w_2 - 2w_1$
+
+$\\ x_4 = \frac{3}{2} - \frac{1}{2} - \frac{7}{2}x_2 - \frac{1}{2}x_3 - \frac{3}{2}w_2 + w_1 - \frac{3}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}w_2$
+$\\ x_4 = 1 - 5x_2 - x_3 + w_1 - 2w_2$
+
+\bigskip Rewrite objective function:
+$\\\zeta = \frac{27}{2} + \frac{3}{2} + \frac{21}{2}x_2 + \frac{3}{2}x_3 + \frac{9}{2}w_2 - \frac{6}{2}w_1 - \frac{11}{2}x_2 + \frac{1}{2}x_3 - \frac{9}{2}w_2$
+$\\\zeta = 15 + 5x_2 + 2x_3 - 3w_1$
+
+\bigskip $x_2$ enters, $x_4$ leaves.
+$\\ x_1 = 1 + \frac{7}{2} - \frac{7}{2}x_3 + \frac{7}{2}w_1 - 7w_2 - \frac{7}{2}x_4 + x_3 + 3w_2 - 2w_1$
+$\\ x_1 = \frac{9}{2} - \frac{5}{2}x_3 + \frac{3}{2}w_1 - 4w_2 - \frac{7}{2}x_4$
+
+$\\ 5x_2 = 1 - x_3 + w_1 - 2w_2 - x_4$
+$\\ x_2 = \frac{1}{5} - \frac{1}{5}x_3 + \frac{1}{5}w_1 - \frac{2}{5}w_2 - \frac{1}{5}x_4$
+
+\bigskip Rewrite objective function:
+$\\\zeta = 15 + 1 - x_3 + w_1 - 2w_2 - x_4 + 2x_3 - 3w_1$
+$\\\zeta = 16 - 2w_2 - x_4 + x_3 - 2w_1$
+
+\bigskip $x_3$ enters and $x_2$ leaves.
+$\\ x_1 = \frac{9}{2} - \frac{5}{2}(1 + w_1 - 2w_2 - x_4 - 5x_2) + \frac{3}{2}w_1 - 4w_2 - \frac{7}{2}x_4$
+
+$\\ x_3 = 1 + w_1 - 2w_2 - x_4 - 5x_2$
+
+\bigskip Rewrite objective function:
+$\\\zeta = 17 - 4w_2 - 2x_4 - 5x_2 - w_1$
+
+\bigskip The optimal solution is at:
+$\\x_1 = 2$
+$\\x_3 = 1$
+$\\\zeta = 17$
+
 \subsubsection*{Part 2}
 Auxiliary problem.
 $\\\zeta = -x_0$
