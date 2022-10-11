@@ -29,7 +29,8 @@ $\\ w_1 = 8 - 2x_1 - x_2 - x_3 - 3x_4$
 $\\ w_2 = 2 - x_1 - 3x_2 - x_3 - 2x_4$
 $\\ x_1, x_2, x_3, x_4, w_1, w_2 \geq 0$
 
-This problem is feasible since all constraints are met when $x_1, x_2, x_3, x_4 = 0$.
+\bigskip This problem is feasible since all constraints are met when:
+$\\x_1, x_2, x_3, x_4 = 0$
 
 When picking the highest bound, the ratio is $\frac{3}{2}$. Since the ratio is positive, this problem is bounded.
 % ?? NEED TO ITERATE
@@ -120,61 +121,107 @@ $\\ x_4 = - 1 + x_1 - x_2 + x_0$
 $\\ x_5 = 4 - x_1 - 2x_2 + x_0$
 $\\ x_3, x_4, x_5 \geq 0$
 
-\bigskip $x_0$ enters and $x_3$ leaves.
+\bigskip $x_0$ enters and $x_3$ leaves, since that equation in the dictionary is the most infeasible.
+
 $\\\zeta = -(x_3 + 3 - x_1 - x_2)$
-$\\\to \zeta = -x_3 - 3 + x_1 + x_2$
+$\\\zeta = -x_3 - 3 + x_1 + x_2$
+
 $\\ x_0 = 3 + x_3 - x_1 - x_2$
+
 $\\ x_4 = - 1 + x_1 - x_2 + (3 + x_3 - x_1 - x_2)$
-$\\\to x_4 = 2 - 2x_2 + x_3$
+$\\ x_4 = 2 - 2x_2 + x_3$
+
 $\\ x_5 = 4 - x_1 - 2x_2 + (3 + x_3 - x_1 - x_2)$
-$\\\to x_5 = 1 - 2x_1 - 3x_2 + x_3$
+$\\ x_5 = 7 - 2x_1 - 3x_2 + x_3$
+
+\bigskip New objective function and constraints.
+$\\ \zeta = -x_3 - 3 + x_1 + x_2$
+$\\ x_0 = 3 + x_3 - x_1 - x_2$
+$\\ x_4 = 2 - 2x_2 + x_3$
+$\\ x_5 = 7 - 2x_1 - 3x_2 + x_3$
 $\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
-\bigskip Start with the solution at:
-$\\x_1, x_2, x_0, x_3, x_4, x_5 = 0$
+\bigskip Initial solution:
+$\\ x_1, x_2, x_0, x_3, x_4, x_5 = 0$
 
-\bigskip Attempt to replace non-basic variable $x_1$.
-$\\ x_1 \leq 3$
-$\\ x_1 \leq \frac{1}{2}$
+\bigskip Attempt to move $x_2$.
+$\\ x_2 = 3$
+$\\ x_2 = 1$
+$\\ x_2 = \frac{7}{3}$
 
-\bigskip $x_1$ enters and $x_5$ leaves.
+\bigskip New solution:
+$\\ x_2 = 1$
+$\\ x_1, x_0, x_3, x_4, x_5 = 0$
 
-\bigskip New solution is:
-$\\x_1 = \frac{1}{2}$
-$\\x_2, x_0, x_3, x_4, x_5 = 0$
+\bigskip $x_2$ enters and $x_4$ leaves.
+$\\ \zeta = -x_3 - 3 + x_1 + (1 + \frac{1}{2}x_3 - \frac{1}{2}x_4)$
+$\\ \zeta = - 2 + x_1 - \frac{1}{2}x_3 - \frac{1}{2}x_4$
 
-\bigskip Rewrite constraints.
-$\\ x_0 = 3 + x_3 - (\frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5) - x_2$
-$\\\to x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5$
-$\\ x_4 = 2 - 2x_2 + x_3$
-$\\ x_1 = \frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
+$\\ x_0 = 3 + x_3 - x_1 - (1 + \frac{1}{2}x_3 - \frac{1}{2}x_4)$
+$\\ x_0 = 3 + x_3 - x_1 - 1 - \frac{1}{2}x_3 + \frac{1}{2}x_4$
+$\\ x_0 = 2 - x_1 + \frac{1}{2}x_3 + \frac{1}{2}x_4$
 
-\bigskip Rewrite objective function.
-$\\\zeta = -x_3 - 3 + (\frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5) + x_2$
-$\\\to \zeta = - \frac{5}{2} - \frac{1}{2}x_2 - \frac{1}{2}x_3 - \frac{1}{2}x_5$
+$\\ x_2 = 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
 
-\bigskip Dictionary is now feasible and $-x_0$ is maximized. Do simplex.
-$\\\zeta = x_1 + 3x_2$
-$\\\to \zeta = \frac{1}{2} + \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
-$\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5$
-$\\ x_4 = 2 - 2x_2 + x_3$
-$\\ x_1 = \frac{1}{2} - \frac{3}{2}x_2 + \frac{1}{2}x_3 - \frac{1}{2}x_5$
+$\\ x_5 = 7 - 2x_1 - 3(1 + \frac{1}{2}x_3 - \frac{1}{2}x_4) + x_3$
+$\\ x_5 = 7 - 2x_1 - 3 - \frac{3}{2}x_3 + \frac{3}{2}x_4 + x_3$
+$\\ x_5 = 4 - 2x_1 - \frac{1}{2}x_3 + \frac{3}{2}x_4$
 
-\bigskip Attempt to replace non-basic variable $x_2$.
-$\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5 \to x_2$ is unbounded by this equation. 
-$\\ 2x_2 = 2 \to x_2 = 1$
-$\\ \frac{3}{2}x_2 = \frac{1}{2} - \frac{1}{2} \to x_2 = 0$
+\bigskip New objective function and constraints.
+$\\ \zeta = - 2 + x_1 - \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ x_0 = 2 - x_1 + \frac{1}{2}x_3 + \frac{1}{2}x_4$
+$\\ x_2 = 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ x_5 = 4 - 2x_1 - \frac{1}{2}x_3 + \frac{3}{2}x_4$
+$\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
 
-\bigskip Increasing $x_2$ would violate a constraint.
+\bigskip Attempt to move $x_1$.
+$x_1 = 2$
 
-\bigskip Attempt to replace non-basic variable $x_3$.
-$\\ x_0 = \frac{5}{2} + \frac{1}{2}x_2 + \frac{1}{2}x_3 + \frac{1}{2}x_5 \to x_3$ is unbounded by this equation.
-$\\ x_4 = 2 - 2x_2 + x_3$
-$\\ -\frac{1}{2}x_3 = \frac{1}{2} - \frac{1}{2} \to x_3 = 0$
+\bigskip New solution:
+$x_1 = 2$
+$x_2 = 1$
+$x_0, x_3, x_4, x_5$
 
-\bigskip Increasing $x_2, x_3$ would violate a constraint. Increasing $x_5$ decreases the objective function. Therefore, the optimal solution is:
-$\\x_1 = \frac{1}{2}$
-$\\x_2, x_0, x_3, x_4, x_5 = 0$
+\bigskip $x_1$ enters and $x_0$ leaves.
+$\\ \zeta = - 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 - x_0 - \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ \zeta = - x_0$
+
+$\\ x_1 = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 - x_0$
+
+$\\ x_2 = 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
+
+$\\ x_5 = 4 - 2(2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 - x_0) - \frac{1}{2}x_3 + \frac{3}{2}x_4$
+$\\ x_5 = 4 - 4 - \frac{2}{2}x_3 - \frac{2}{2}x_4 + 2x_0 - \frac{1}{2}x_3 + \frac{3}{2}x_4$
+$\\ x_5 = - \frac{3}{2}x_3 + 2x_0 + \frac{1}{2}x_4$
+
+\bigskip New objective function and constraints:
+$\\ \zeta = - x_0$
+$\\ x_1 = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 - x_0$
+$\\ x_2 = 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ x_5 = - \frac{3}{2}x_3 + 2x_0 + \frac{1}{2}x_4$
+$\\ x_1, x_2, x_0, x_3, x_4, x_5 \geq 0$
+
+\bigskip Do simplex. Replace $-x_0$ in objective function with $x_1 + 3x_2$.
+$\\ \zeta = x_1 + 3x_2$
+$\\ \zeta = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4 + 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ \zeta = 3 + x_3$
+
+\bigskip New objective function and constraints.
+$\\ \zeta = 3 + x_3$
+$\\ x_1 = 2 + \frac{1}{2}x_3 + \frac{1}{2}x_4$
+$\\ x_2 = 1 + \frac{1}{2}x_3 - \frac{1}{2}x_4$
+$\\ x_5 = - \frac{3}{2}x_3 + \frac{1}{2}x_4$
+$\\ x_1, x_2, x_3, x_4, x_5 \geq 0$
+
+\bigskip Attempt to replace $x_3$.
+$\\ -\frac{1}{2}x_3 = 2 - 2 \to x_3 = 0$
+
+\bigskip $x_3$ cannot be increased since a constraint would be violated. Therefore, the optimal solution is at:
+$\\ x_1 = 2$
+$\\ x_2 = 1$
+$\\ \zeta = x_1 + 3x_2 = 5$
+
+% ?? CONTINUE
 
 \newpage
 \subsection*{Question 2b}
