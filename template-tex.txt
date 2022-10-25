@@ -16,7 +16,7 @@
 
 \setlength{\parindent}{0cm}
 
-\title{MAT168 HW1}
+\title{MAT168 HW}
 \author{Andrew Jowe}
 
 \begin{document}
