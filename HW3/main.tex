@@ -205,7 +205,6 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 \]
 
 \subsection*{Dual Simplex Iteration 1}
-% ??
 \subsubsection*{Step 1}
 \[
     x^*_B \ngeq 0
@@ -213,42 +212,47 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 
 \subsubsection*{Step 2}
 \[
-    z^*_N=-c_N=\begin{bmatrix}
-        2 \\
-        -6 \\
-        0 \\
+    x^*_B=-c_N=\begin{bmatrix}
+        -2 \\
+        1 \\
     \end{bmatrix}
 \]
 
 \[
-    j = 2
+    i = 4
 \]
 
 \subsubsection*{Step 3}
 \[
-    \Delta x_B = B^{-1}Ne_j
+    \Delta z_N = -(B^{-1}N)^T e_i
 \]
-
 \[
-    \Delta x_B
-    =\begin{bmatrix}
-        1 & 0 \\
-        0 & 1 \\
-    \end{bmatrix}^{-1}
+    \Delta z_N =
+    -\begin{bmatrix}
+        1 & 1 & 1 \\
+        -2 & 1 & -1 \\
+    \end{bmatrix}^T
     \begin{bmatrix}
-        -1 & -1 & -1 \\
-        2 & -1 & 1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
-        0 \\
         1 \\
         0 \\
     \end{bmatrix}
 \]
-
 \[
-    \Delta x_B = 
+    \Delta z_N = 
     \begin{bmatrix}
+        -1 & 2 \\
+        -1 & -1 \\
+        -1 & 1 \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 \\
+        0 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta z_N = 
+    \begin{bmatrix}
+        -1 \\
         -1 \\
         -1 \\
     \end{bmatrix}
@@ -256,23 +260,25 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 
 \subsubsection*{Step 4}
 \[
-    t = \left(max_{i \in B} \frac{\Delta x_i}{x^*_i}\right)^{-1}
+    s = \left(max_{j \in N} \frac{\Delta z_j}{z^*_j}\right)^{-1}
 \]
-
 \[
-    t = \left(max_{i \in B} \left\{ \frac{-2}{-1} _{\textstyle,}\ \frac{-1}{1} \right\} \right)^{-1}
+    s = \left(max \left\{ \frac{-1}{-2}_{\textstyle,}\ \frac{-1}{6}_{\textstyle,}\ \frac{-1}{0} \right\} \right)^{-1}
 \]
-
 \[
-    t = \frac{-1}{1}_{\textstyle,}
+    s = \left(\frac{1}{2}\right)^{-1}
+\]
+\[
+    s = 2
 \]
 
 \subsubsection*{Step 5}
 \[
-    i = 5
+    j = 1
 \]
 
 \subsubsection*{Step 6}
+% ?? Continue from here
 \[
     \Delta z_N = -\left(B^{-1}N\right)^T e_i
 \]
