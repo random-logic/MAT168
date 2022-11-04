@@ -265,8 +265,9 @@
 \]
 
 \subsubsection*{Calculations}
+Constraint Equations:
 \[
-    -B^{-1}N = \begin{bmatrix}
+    B^{-1}N = \begin{bmatrix}
         1 & 3 & -2 \\
         -2 & -2 & 1 \\
         5 & 2 & 0 \\
@@ -305,6 +306,13 @@
         0 \\
     \end{bmatrix}
 \]
+\[
+    \Delta z_N = \begin{bmatrix}
+        0 \\
+        -1 \\
+        0 \\
+    \end{bmatrix}
+\]
 
 \bigskip Since $z^*_N + t\Delta z_N \geq 0$:
 \[
@@ -314,14 +322,26 @@
         1 \\
     \end{bmatrix}
     + t \begin{bmatrix}
-        % ??
-        0
+        0 \\
+        -1 \\
+        0 \\
     \end{bmatrix}
     \geq \begin{bmatrix}
         0 \\
         0 \\
         0 \\
     \end{bmatrix}
+\]
+
+\bigskip Solving for $t$:
+\[
+    1 - t \geq 0
+\]
+\[
+    t \leq 1
+\]
+\[
+    t \in (-\infty, 1]
 \]
 
 \subsubsection*{Range for $c_3$}
