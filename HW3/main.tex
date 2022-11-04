@@ -228,6 +228,99 @@
 
 \section*{(3)}
 % ??
+\subsubsection*{Optimal Dictionary}
+\[
+    \zeta = 13-3x_2-x_4-x_6
+\]
+\[
+    x_3 = 1+x_2+3x_4-2x_6
+\]
+\[
+    x_1 = 2-2x_2-2x_4+x_6
+\]
+\[
+    x_5 = 1+5x_2+2x_4
+\]
+
+\subsubsection*{Given}
+\[
+    B = \{3, 1, 5\},\ N = \{2, 4, 6\}
+\]
+\[
+    c = [5, 4, 3, 0, 0, 0]
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        3 \\
+        1 \\
+        1 \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Calculations}
+\[
+    -B^{-1}N = \begin{bmatrix}
+        1 & 3 & -2 \\
+        -2 & -2 & 1 \\
+        5 & 2 & 0 \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Range for $c_2$}
+\[
+    \Delta c = [0, 1, 0, 0, 0, 0]
+\]
+\[
+    \Delta c^T_B = [0, 0, 0]
+\]
+\[
+    \Delta c^T_N = [0, 1, 0]
+\]
+
+\bigskip Then:
+\[
+    \Delta z_N = (B^{-1}N)^T \Delta c_B - \Delta c_N
+\]
+\[
+    \Delta z_N = \begin{bmatrix}
+        1 & 3 & -2 \\
+        -2 & -2 & 1 \\
+        5 & 2 & 0 \\
+    \end{bmatrix}^T
+    \begin{bmatrix}
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix}
+    - \begin{bmatrix}
+        0 \\
+        1 \\
+        0 \\
+    \end{bmatrix}
+\]
+
+\bigskip Since $z^*_N + t\Delta z_N \geq 0$:
+\[
+    \begin{bmatrix}
+        3 \\
+        1 \\
+        1 \\
+    \end{bmatrix}
+    + t \begin{bmatrix}
+        % ??
+        0
+    \end{bmatrix}
+    \geq \begin{bmatrix}
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Range for $c_3$}
+\[
+    \Delta c = [0, 0, 1, 0, 0, 0]
+\]
 
 \section*{(4)}
 \subsection*{Constraints}
