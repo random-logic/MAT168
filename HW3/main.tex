@@ -27,7 +27,7 @@
 \maketitle
 
 \section*{(1)}
-% ?? REDO with auxilery problem
+% ?? REDO with changing original problem and now doing dual simplex
 \subsection*{Original Problem}
 \[
     \zeta = 2x_1 - 6x_2 + 0x_3
@@ -39,7 +39,7 @@
     x_5 = 1 - 2x_1 + x_2 - x_3
 \]
 
-\subsection*{Setup}
+\subsection*{Given}
 \[
     N=\begin{bmatrix}
         -1 & -1 & -1 \\
@@ -81,7 +81,7 @@
 \]
 
 \[
-    x^*_B = \begin{bmatrix}
+    x_B = \begin{bmatrix}
         x^*_4 \\
         x^*_5 \\
     \end{bmatrix}
@@ -91,7 +91,121 @@
     \end{bmatrix}
 \]
 
-\subsection*{Iteration 1}
+\[
+    z_N = \begin{bmatrix}
+        -2 \\
+        6 \\
+        0 \\
+    \end{bmatrix}
+\]
+
+\[
+    B = \{4, 5\}, N = \{1, 2, 3\}
+\]
+
+\subsection*{Constraint Equations}
+\[
+    B^{-1}N = \begin{bmatrix}
+        1 & 1 & 1 \\
+        -2 & 1 & -1 \\
+    \end{bmatrix}
+\]
+
+\subsection*{Range for $c_2$}
+\subsubsection*{Setup}
+\[
+    \Delta c = [0, 1, 0, 0, 0]
+\]
+\[
+    \Delta c^T_B = [0, 0]
+\]
+\[
+    \Delta c^T_N = [0, 1, 0]
+\]
+
+\bigskip Please note the indices for these variables correspond to:
+\[
+    \Delta c = \{1, 2, 3, 4, 5\}
+\]
+\[
+    \Delta c^T_B = B = \{4, 5\}
+\]
+\[
+    \Delta c^T_N = N = \{1, 2, 3\}
+\]
+
+\subsubsection*{Calculate $\Delta z_N$}
+\[
+    \Delta z_N = (B^{-1}N)^T \Delta c_B - \Delta c_N
+\]
+\[
+    \Delta z_N = \begin{bmatrix}
+        1 & 1 & 1 \\
+        -2 & 1 & -1 \\
+    \end{bmatrix}^T
+    \begin{bmatrix}
+        0 \\
+        0 \\
+    \end{bmatrix}
+    - \begin{bmatrix}
+        0 \\
+        1 \\
+        0 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta z_N = \begin{bmatrix}
+        0 \\
+        -1 \\
+        0 \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Solve for $t$}
+Since $z_N + t\Delta z_N \geq 0$:
+\[
+    \begin{bmatrix}
+        2 \\
+        -6 \\
+        0 \\
+    \end{bmatrix}
+    + t \begin{bmatrix}
+        0 \\
+        -1 \\
+        0 \\
+    \end{bmatrix}
+    \geq \begin{bmatrix}
+        0 \\
+        0 \\
+        0 \\
+    \end{bmatrix}
+\]
+
+\bigskip Then:
+\[
+    -6 - t \geq 0
+\]
+\[
+    t \leq -6
+\]
+\[
+    t \in (-\infty, -6]
+\]
+
+\subsection*{Change Original Problem}
+To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in (-\infty, -6]$. Our new problem is:
+\[
+    \zeta = 2x_1 + x_2 + 0x_3
+\]
+\[
+    x_4 = -2 + x_1 + x_2 + x_3
+\]
+\[
+    x_5 = 1 - 2x_1 + x_2 - x_3
+\]
+
+\subsection*{Dual Simplex Iteration 1}
+% ??
 \subsubsection*{Step 1}
 \[
     x^*_B \ngeq 0
@@ -263,8 +377,7 @@
     \end{bmatrix}
 \]
 
-\subsection*{Calculations}
-Constraint Equations:
+\subsection*{Constraint Equations}
 \[
     B^{-1}N = \begin{bmatrix}
         1 & 3 & -2 \\
