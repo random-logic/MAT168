@@ -212,13 +212,6 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 
 \subsubsection*{Step 2}
 \[
-    x^*_B=-c_N=\begin{bmatrix}
-        -2 \\
-        1 \\
-    \end{bmatrix}
-\]
-
-\[
     i = 4
 \]
 
@@ -278,70 +271,123 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 \]
 
 \subsubsection*{Step 6}
-% ?? Continue from here
 \[
-    \Delta z_N = -\left(B^{-1}N\right)^T e_i
+    \Delta x_B = B^{-1}N e_i
 \]
-
 \[
-    \Delta z_N = -\left(
+    \Delta x_B =
     \begin{bmatrix}
-        1 & 0 \\
-        0 & 1 \\
-    \end{bmatrix}^{-1}
+        1 & 1 & 1 \\
+        -2 & 1 & -1 \\
+    \end{bmatrix}
     \begin{bmatrix}
-        -1 & -1 & -1 \\
-        2 & -1 & 1 \\
-    \end{bmatrix}\right)^T
-    \begin{bmatrix}
-        0 \\
         1 \\
-    \end{bmatrix}
-\]
-
-\[
-    \Delta z_N =
-    -\begin{bmatrix}
-        -1 & -1 & -1 \\
-        2 & -1 & 1 \\
-    \end{bmatrix}^T
-    \begin{bmatrix}
         0 \\
-        1 \\
-    \end{bmatrix}
-\]
-
-\[
-    \Delta z_N =
-    \begin{bmatrix}
-        1 & -2 \\
-        1 & 1 \\
-        1 & -1 \\
-    \end{bmatrix}
-    \begin{bmatrix}
         0 \\
-        1 \\
     \end{bmatrix}
 \]
-
 \[
-    \Delta z_N =
+    \Delta x_B =
     \begin{bmatrix}
+        1 \\
         -2 \\
-        1 \\
-        -1 \\
     \end{bmatrix}
 \]
 
 \subsubsection*{Step 7}
 \[
-    s = \frac{z^*_j}{\Delta z_j} = \frac{-6}{1} = -6
+    t = \frac{x^*_i}{\Delta x_i} = \frac{-2}{1}
 \]
 
 \subsubsection*{Step 8}
 \[
-    x^*_2 = 
+    x^*_j = t
 \]
+\[
+    x^*_4 = -2
+\]
+
+\[
+    x^*_B = x^*_B - t \Delta x_B
+\]
+\[
+    x^*_B = \begin{bmatrix}
+        -2 \\
+        1 \\
+    \end{bmatrix}
+    - (-2) \begin{bmatrix}
+        1 \\
+        -2 \\
+    \end{bmatrix}
+\]
+\[
+    x^*_B = \begin{bmatrix}
+        -2 \\
+        1 \\
+    \end{bmatrix}
+    + \begin{bmatrix}
+        2 \\
+        -4 \\
+    \end{bmatrix}
+\]
+\[
+    x^*_B = \begin{bmatrix}
+        0 \\
+        -3 \\
+    \end{bmatrix}
+\]
+
+\[
+    z^*_i = s
+\]
+\[
+    z^*_1 = 2
+\]
+
+\[
+    z^*_N = z^*_N - s \Delta z_N
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        2 \\
+        6 \\
+        0 \\
+    \end{bmatrix}
+    - 2 \begin{bmatrix}
+        -1 \\
+        -1 \\
+        -1 \\
+    \end{bmatrix}
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        2 \\
+        6 \\
+        0 \\
+    \end{bmatrix}
+    + \begin{bmatrix}
+        2 \\
+        2 \\
+        2 \\
+    \end{bmatrix}
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        4 \\
+        8 \\
+        2 \\
+    \end{bmatrix}
+\]
+
+\[
+    B = \{1, 5\}
+\]
+\[
+    N = \{4, 2, 3\}
+\]
+
+\subsection*{Iteration 2}
+% ??
 
 \section*{(2)}
 % ??
