@@ -438,7 +438,7 @@ Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
         -1 & 0 & 1 & 0 \\
         2 & 1 & 0 & 1 \\
     \end{array}
-    \right] -R_1
+    \right] \to -R_1
 \]
 \[
     \left[
@@ -446,7 +446,7 @@ Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
         1 & 0 & -1 & 0 \\
         2 & 1 & 0 & 1 \\
     \end{array}
-    \right] R_2 - 2R_1
+    \right] \to R_2 - 2R_1
 \]
 \[
     \left[
@@ -697,7 +697,7 @@ Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
         -1 & -1 & 1 & 0 \\
         2 & 1 & 0 & 1 \\
     \end{array}
-    \right] R_1 + R_2
+    \right] \to R_1 + R_2
 \]
 \[
     \left[
@@ -705,7 +705,7 @@ Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
         1 & 0 & 1 & 1 \\
         2 & 1 & 0 & 1 \\
     \end{array}
-    \right] R_2 - 2R_1
+    \right] \to R_2 - 2R_1
 \]
 \[
     \left[
@@ -918,10 +918,213 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 
 \subsection*{Dual Simplex Iteration 4}
+\subsubsection*{Step 1}
+The dictionary isn't optimized yet because:
+\[
+    x^*_B \ngeq 0
+\]
+
+\subsubsection*{Step 2}
+Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
+\[
+    i = 3
+\]
+
+\subsubsection*{Step 3}
+\[
+    \Delta z_N = -(B^{-1}N)^T e_i
+\]
+\[
+    \Delta z_N = -\left(\begin{bmatrix}
+        -1 & -1 \\
+        -1 & 1 \\
+    \end{bmatrix}^{-1}
+    \begin{bmatrix}
+        1 & -1 & 0 \\
+        0 & 2 & 1 \\
+    \end{bmatrix}\right)^T
+    \begin{bmatrix}
+        0 \\
+        1 \\
+    \end{bmatrix}
+\]
+
+\bigskip Please note that:
+\[
+    \left[
+    \begin{array}{cc|cc}
+        -1 & -1 & 1 & 0 \\
+        -1 & 1 & 0 & 1 \\
+    \end{array}
+    \right] \to R_1 + R_2
+\]
+\[
+    \left[
+    \begin{array}{cc|cc}
+        -2 & 0 & 1 & 1 \\
+        -1 & 1 & 0 & 1 \\
+    \end{array}
+    \right] \to -\frac{1}{2}R_1
+\]
+\[
+    \left[
+    \begin{array}{cc|cc}
+        1 & 0 & -\frac{1}{2} & -\frac{1}{2} \\
+        -1 & 1 & 0 & 1 \\
+    \end{array}
+    \right] \to R_2 + R_1
+\]
+\[
+    \left[
+    \begin{array}{cc|cc}
+        1 & 0 & -\frac{1}{2} & -\frac{1}{2} \\
+        0 & 1 & -\frac{1}{2} & \frac{1}{2} \\
+    \end{array}
+    \right]
+\]
+
+\bigskip Therefore:
+\[
+    \Delta z_N = -\left(\begin{bmatrix}
+        -\frac{1}{2} & -\frac{1}{2} \\
+        -\frac{1}{2} & \frac{1}{2} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1 & -1 & 0 \\
+        0 & 2 & 1 \\
+    \end{bmatrix}\right)^T
+    \begin{bmatrix}
+        0 \\
+        1 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta z_N = -\begin{bmatrix}
+        -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+        -\frac{1}{2} & \frac{3}{2} & \frac{1}{2} \\
+    \end{bmatrix}^T
+    \begin{bmatrix}
+        0 \\
+        1 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta z_N = \begin{bmatrix}
+        \frac{1}{2} & \frac{1}{2} \\
+        \frac{1}{2} & -\frac{3}{2} \\
+        \frac{1}{2} & -\frac{1}{2} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\
+        1 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta z_N = \begin{bmatrix}
+        \frac{1}{2} \\
+        -\frac{3}{2} \\
+        -\frac{1}{2} \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Step 4}
+\[
+    s = \left(max_{j \in N} \frac{\Delta z_j}{z^*_j}\right)^{-1}
+\]
+\[
+    s = \left(max \left\{ \frac{\frac{1}{2}}{5}_{\textstyle,}\ \frac{-\frac{3}{2}}{-1}_{\textstyle,}\ \frac{-\frac{1}{2}}{3} \right\} \right)^{-1}
+\]
+\[
+    s = \left(\frac{3}{2}\right)^{-1}
+\]
+\[
+    s = \frac{2}{3}
+\]
+
+\subsubsection*{Step 5}
+Pick $j$ that corresponds to the max chosen for $s$:
+\[
+    j = 1
+\]
+
+\subsubsection*{Step 6}
+\[
+    \Delta x_B = B^{-1}N e_i
+\]
+\[
+    \Delta x_B =
+    \begin{bmatrix}
+        -\frac{1}{2} & -\frac{1}{2} & -\frac{1}{2} \\
+        -\frac{1}{2} & \frac{3}{2} & \frac{1}{2} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+        0 \\
+        1 \\
+        0 \\
+    \end{bmatrix}
+\]
+\[
+    \Delta x_B =
+    \begin{bmatrix}
+        -\frac{1}{2} \\
+        \frac{3}{2} \\
+    \end{bmatrix}
+\]
+
+\subsubsection*{Step 7}
+\[
+    t = \frac{x^*_i}{\Delta x_i} = \frac{-\frac{3}{4}}{\frac{3}{2}} = - \frac{1}{2}
+\]
+
+\subsubsection*{Step 8}
+\[
+    x^*_i = t
+\]
+\[
+    x^*_3 = -\frac{1}{2}
+\]
+
+\[
+    x^*_B = x^*_B - t \Delta x_B
+\]
+\[
+    x^*_B = \begin{bmatrix}
+        \frac{3}{4} \\
+        \frac{3}{2} \\
+    \end{bmatrix}
+    - \frac{3}{4} \begin{bmatrix}
+        -2 \\
+        3 \\
+    \end{bmatrix}
+\]
+
+
+\[
+    z^*_j = s
+\]
+\[
+    z^*
+\]
+
+\[
+    z^*_N = z^*_N - s \Delta z_N
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        4 \\
+        1 \\
+        2 \\
+    \end{bmatrix}
+    - 1 \begin{bmatrix}
+        -1 \\
+        2 \\
+        -1 \\
+    \end{bmatrix}
+\]
 
 \subsubsection*{Last}
-
 % ??
+
 \section*{(2)}
 % ??
 
