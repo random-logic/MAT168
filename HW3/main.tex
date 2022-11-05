@@ -100,7 +100,7 @@
 \]
 
 \[
-    B = \{4, 5\}, N = \{1, 2, 3\}
+    \boldsymbol{B} = \{4, 5\}, \boldsymbol{N} = \{1, 2, 3\}
 \]
 
 \subsection*{Constraint Equations}
@@ -128,10 +128,10 @@
     \Delta c = \{1, 2, 3, 4, 5\}
 \]
 \[
-    \Delta c^T_B = B = \{4, 5\}
+    \Delta c^T_B = \boldsymbol{B} = \{4, 5\}
 \]
 \[
-    \Delta c^T_N = N = \{1, 2, 3\}
+    \Delta c^T_N = \boldsymbol{N} = \{1, 2, 3\}
 \]
 
 \subsubsection*{Calculate $\Delta z_N$}
@@ -206,11 +206,13 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 
 \subsection*{Dual Simplex Iteration 1}
 \subsubsection*{Step 1}
+The dictionary isn't optimized yet because:
 \[
     x^*_B \ngeq 0
 \]
 
 \subsubsection*{Step 2}
+Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
 \[
     i = 4
 \]
@@ -266,6 +268,7 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 \]
 
 \subsubsection*{Step 5}
+Pick $j$ that corresponds to the max chosen for $s$:
 \[
     j = 1
 \]
@@ -387,6 +390,22 @@ To make the problem more feasible, we can change $c_2$ to equal 1 since $-7 \in 
 \]
 
 \subsection*{Iteration 2}
+\subsubsection*{Step 1}
+The dictionary isn't optimized yet because:
+\[
+    x^*_B \ngeq 0
+\]
+
+\subsubsection*{Step 2}
+Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
+\[
+    i = 5
+\]
+
+\subsubsection*{Step 3}
+\[
+    \Delta z_N = -(B^{-1}N)^T e_i
+\]
 % ??
 
 \section*{(2)}
