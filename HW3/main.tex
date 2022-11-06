@@ -685,7 +685,6 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 
 \subsection*{Dual Simplex Iteration 3}
-% ?? Redo because we [stuff]ed up step 8 on iterations 3 to 4
 \subsubsection*{Step 1}
 The dictionary isn't optimized yet because:
 \[
@@ -803,7 +802,7 @@ Pick $i \in \{i \in \boldsymbol{B}: x^*_i < 0\}$:
     s = \left(max_{j \in N} \frac{\Delta z_j}{z^*_j}\right)^{-1}
 \]
 \[
-    s = \left(max \left\{ \frac{-1}{8}_{\textstyle,}\ \frac{2}{2}_{\textstyle,}\ \frac{-1}{0} \right\} \right)^{-1}
+    s = \left(max \left\{ \frac{-1}{6}_{\textstyle,}\ \frac{2}{2}_{\textstyle,}\ \frac{-1}{0} \right\} \right)^{-1}
 \]
 \[
     s = \left(\frac{2}{2}\right)^{-1}
@@ -844,52 +843,52 @@ Pick $j$ that corresponds to the max chosen for $s$:
 
 \subsubsection*{Step 7}
 \[
-    t = \frac{x^*_i}{\Delta x_i} = \frac{-\frac{3}{2}}{-2} = \frac{3}{4}
+    t = \frac{x^*_i}{\Delta x_i} = \frac{-\frac{7}{2}}{-2} = \frac{7}{4}
 \]
 
 \subsubsection*{Step 8}
-\[
-    x^*_i = t
-\]
-\[
-    x^*_1 = \frac{3}{4}
-\]
-
 \[
     x^*_B = x^*_B - t \Delta x_B
 \]
 \[
     x^*_B = \begin{bmatrix}
-        \frac{3}{4} \\
-        \frac{3}{2} \\
+        -\frac{7}{2} \\
+        -\frac{3}{2} \\
     \end{bmatrix}
-    - \frac{3}{4} \begin{bmatrix}
+    - \frac{7}{4} \begin{bmatrix}
         -2 \\
         3 \\
     \end{bmatrix}
 \]
 \[
     x^*_B = \begin{bmatrix}
-        \frac{3}{4} \\
-        \frac{3}{2} \\
+        -\frac{7}{2} \\
+        -\frac{3}{2} \\
     \end{bmatrix}
     + \begin{bmatrix}
-        \frac{3}{2} \\
-        - \frac{9}{4} \\
+        \frac{7}{2} \\
+        -\frac{21}{4} \\
     \end{bmatrix}
 \]
 \[
     x^*_B = \begin{bmatrix}
-        \frac{9}{4} \\
-        - \frac{3}{4} \\
+        0 \\
+        -\frac{27}{4} \\
     \end{bmatrix}
 \]
 
+
 \[
-    z^*_j = s
+    x^*_i = t
 \]
 \[
-    z^*_2 = 1
+    x^*_1 = \frac{7}{4}
+\]
+\[
+    x^*_B = \begin{bmatrix}
+        \frac{7}{4} \\
+        -\frac{27}{4} \\
+    \end{bmatrix}
 \]
 
 \[
@@ -897,8 +896,8 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 \[
     z^*_N = \begin{bmatrix}
-        4 \\
-        1 \\
+        6 \\
+        6 \\
         2 \\
     \end{bmatrix}
     - 1 \begin{bmatrix}
@@ -909,8 +908,8 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 \[
     z^*_N = \begin{bmatrix}
-        4 \\
-        1 \\
+        6 \\
+        6 \\
         2 \\
     \end{bmatrix}
     + \begin{bmatrix}
@@ -921,8 +920,22 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 \[
     z^*_N = \begin{bmatrix}
-        5 \\
-        -1 \\
+        7 \\
+        4 \\
+        3 \\
+    \end{bmatrix}
+\]
+
+\[
+    z^*_j = s
+\]
+\[
+    z^*_2 = 1
+\]
+\[
+    z^*_N = \begin{bmatrix}
+        7 \\
+        1 \\
         3 \\
     \end{bmatrix}
 \]
@@ -945,6 +958,7 @@ Pick $j$ that corresponds to the max chosen for $s$:
 \]
 
 \subsection*{Dual Simplex Iteration 4}
+% ?? Redo because we [stuff]ed up step 8 on iteration 4
 \subsubsection*{Step 1}
 The dictionary isn't optimized yet because:
 \[
