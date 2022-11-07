@@ -1223,7 +1223,7 @@ Pick $j$ that corresponds to the max chosen for $s$:
     \Delta c^T_B = [0, 0, 0]
 \]
 \[
-    \Delta c^T_N = [0, 1, 0]
+    \Delta c^T_N = [1, 0, 0]
 \]
 
 \bigskip Please note the indices for these variables correspond to:
@@ -1253,15 +1253,15 @@ Pick $j$ that corresponds to the max chosen for $s$:
         0 \\
     \end{bmatrix}
     - \begin{bmatrix}
-        0 \\
         1 \\
+        0 \\
         0 \\
     \end{bmatrix}
 \]
 \[
     \Delta z_N = \begin{bmatrix}
-        0 \\
         -1 \\
+        0 \\
         0 \\
     \end{bmatrix}
 \]
@@ -1275,8 +1275,8 @@ Since $z^*_N + t\Delta z_N \geq 0$:
         1 \\
     \end{bmatrix}
     + t \begin{bmatrix}
-        0 \\
         -1 \\
+        0 \\
         0 \\
     \end{bmatrix}
     \geq \begin{bmatrix}
@@ -1288,13 +1288,13 @@ Since $z^*_N + t\Delta z_N \geq 0$:
 
 \bigskip Then:
 \[
-    1 - t \geq 0
+    3 - t \geq 0
 \]
 \[
-    t \leq 1
+    t \leq 3
 \]
 \[
-    t \in (-\infty, 1]
+    t \in (-\infty, 3]
 \]
 
 \subsection*{Range for $c_3$}
