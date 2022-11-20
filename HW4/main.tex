@@ -1,0 +1,82 @@
+\documentclass[14pt]{extarticle}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with `a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{enumitem}
+
+\usepackage{xcolor, soul}
+
+% For the written parts
+\usepackage{pdfpages}
+
+\sethlcolor{yellow}
+
+\setlength{\parindent}{0cm}
+
+\title{MAT168 HW4}
+\author{Andrew Jowe}
+
+\begin{document}
+\maketitle
+\section*{(1)}
+\subsection*{Iteration 1}
+\subsubsection*{Draw out original problem}
+\begin{tabular}{r r|r r r r r r r}
+    $l$ & & & & \fbox{0} & & \fbox{0} & & \\
+    & $u$ & & & 6 & & 8 & & \\
+    \hline
+    & & $\zeta$ & $=$ & $-x_1$ & $+$ & $x_2$ & $=$ & $0$ \\
+    \hline
+    $-\infty$ & $5$ & $w_1$ & $=$ & $-x_1$ & $+$ & $x_2$ & $=$ & $0$ \\
+    $-\infty$ & $9$ & $w_2$ & $=$ & $x_1$ & $-$ & $2x_2$ & $=$ & $0$ \\
+\end{tabular}
+
+\subsubsection*{Determine entering variable}
+$x_2$ has positive coefficient and is at lower bound, $x_2$ enters.
+
+\subsubsection*{Determine leaving variable}
+As $x_2 \to 8$:
+$\\w_1 \to -\infty \leq x_2 \leq 5 \to x_2 = 5$
+$\\w_2 \to -\infty \leq -2x_2 \leq 9 \to x_2 = \infty$
+
+\bigskip $w_1$ leaves.
+
+\subsection*{Iteration 2}
+\subsubsection*{Rewriting equation}
+\begin{tabular}{r r|r r r r r r r}
+    $l$ & & & & $-\infty$ & & 0 & & \\
+    & $u$ & & & \fbox{5} & & \fbox{8} & & \\
+    \hline
+    & & $\zeta$ & $=$ & $w_1$ & $+$ & $0x_2$ & $=$ & $5$ \\
+    \hline
+    $0$ & $6$ & $x_1$ & $=$ & $-w_1$ & $+$ & $x_2$ & $=$ & $3$ \\
+    $-\infty$ & $9$ & $w_2$ & $=$ & $-w_1$ & $-$ & $x_2$ & $=$ & $-13$ \\
+\end{tabular}
+
+\subsubsection*{Optimal}
+This is optimal since $w_1$ has positive coefficient and upper bound is chosen, and $x_2$ has coefficient of 0.
+
+\section*{(2)}
+\subsection*{Dual}
+% ??
+
+\section*{Collaboration}
+% ?? To fill in later
+
+\section*{Academic Integrity}
+On my personal integrity as a student and member of the UCD community, I have not given, nor received any unauthorized assistance on this assignment.
+
+\bigskip Andrew
+
+\end{document}
