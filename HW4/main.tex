@@ -55,23 +55,23 @@ As $x_2 \to 8$:
 \subsection*{Iteration 2}
 \subsubsection*{Rewriting equation}
 \[\begin{tabular}{r r|r r r r r r r}
-    $l$ & & & & $-\infty$ & & 0 & & \\
-    & $u$ & & & \fbox{5} & & \fbox{8} & & \\
+    $l$ & & & & \fbox{0} & & $-\infty$ & & \\
+    & $u$ & & & $6$ & & \fbox{5} & & \\
     \hline
-    & & $\zeta$ & $=$ & $w_1$ & $+$ & $0x_2$ & $=$ & $5$ \\
+    & & $\zeta$ & $=$ & $0x_1$ & $+$ & $w_1$ & $=$ & $5$ \\
     \hline
-    $0$ & $6$ & $x_1$ & $=$ & $-w_1$ & $+$ & $x_2$ & $=$ & $3$ \\
-    $-\infty$ & $9$ & $w_2$ & $=$ & $-w_1$ & $-$ & $x_2$ & $=$ & $-13$ \\
+    $0$ & $8$ & $x_2$ & $=$ & $x_1$ & $+$ & $w_1$ & $=$ & $5$ \\
+    $-\infty$ & $9$ & $w_2$ & $=$ & $-x_1$ & $-$ & $2w_2$ & $=$ & $-10$ \\
 \end{tabular}\]
 
 \subsubsection*{Optimal}
-This is optimal since $w_1$ has positive coefficient and upper bound is chosen, and $x_2$ has coefficient of 0.
+This is optimal since $w_1$ has positive coefficient and upper bound is chosen, and $x_1$ has coefficient of 0.
 
 \subsection*{Solution}
 \[w_1 = 5\]
-\[x_2 = 8\]
-\[x_1 = 3\]
-\[w_2 = -13\]
+\[x_2 = 5\]
+\[x_1 = 0\]
+\[w_2 = -10\]
 \[\zeta = 5\]
 
 \section*{(2)}
@@ -110,7 +110,7 @@ This is optimal since $w_1$ has positive coefficient and upper bound is chosen, 
 \subsubsection*{Slack Variables}
 \[f = \begin{bmatrix}
     0 \\
-    22 \\
+    19 \\
 \end{bmatrix}\]
 
 \[p = \begin{bmatrix}
@@ -119,13 +119,13 @@ This is optimal since $w_1$ has positive coefficient and upper bound is chosen, 
 \end{bmatrix}\]
 
 \[t = \begin{bmatrix}
+    6 \\
     3 \\
-    0 \\
 \end{bmatrix}\]
 
 \[g = \begin{bmatrix}
-    3 \\
     0 \\
+    5 \\
 \end{bmatrix}\]
 
 \subsection*{Dual}
@@ -158,20 +158,20 @@ This is optimal since $w_1$ has positive coefficient and upper bound is chosen, 
 \end{tabular}\]
 
 \subsubsection*{Complimentary Slackness}
-\[f_2 = 22 \to v_2 = 0\]
+\[f_2 = 19 \to v_2 = 0\]
 \[p_i \neq 0 \to q_i = 0 \ \ \forall i \in [1, m]\]
-\[t_1 = 3 \to s_1 = 0\]
-\[g_1 = 3 \to h_1 = 0\]
+\[t_j \neq 0 \to s_j = 0 \ \ \forall j \in [1, n]\]
+\[g_2 = 5 \to h_2 = 0\]
 
 \subsubsection*{Rewrite Equations Iteration 1}
 \[\begin{tabular}{r l}
-    minimimze & $5v_1$ \\
-    & $8s_2$ \\
+    minimimze & $5v_1^+$ \\
+    & $0$ \\
     \\
     subject to & $\begin{bmatrix}
         -1 & 1 \\
         1 & -2 \\
-    \end{bmatrix}v-h+s=\begin{bmatrix}
+    \end{bmatrix}v-h=\begin{bmatrix}
         -1 \\
         1 \\
     \end{bmatrix}$
@@ -179,16 +179,19 @@ This is optimal since $w_1$ has positive coefficient and upper bound is chosen, 
 
 \subsubsection*{Rewrite Equations Iteration 2}
 \[\begin{tabular}{r l}
-    minimimze & $5v_1$ \\
-    & $8s_2$ \\
+    minimimze & $5v_1^+$ \\
+    & $0$ \\
     \\
-    subject to & $-v_1 = -1$ \\
-    & $v_1 - h_2 + s_2 = 1$ \\
+    subject to & $-v_1 - h_1 = -1$ \\
+    & $v_1 = 1$ \\
 \end{tabular}\]
 
 \subsubsection*{Solve}
 \[v_1 = 1\]
-\[h_2 = s_2 = 1\]
+\[v_2 = 0\]
+\[q_1, q_2 = 0\]
+\[s_1, s_2 = 0\]
+\[h_1, h_2 = 0\]
 \[\zeta = 5v_1 = 5(1) = 5\]
 
 \section*{Academic Integrity}
