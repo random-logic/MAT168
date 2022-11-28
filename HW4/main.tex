@@ -69,7 +69,33 @@ This is optimal since $w_1$ has positive coefficient and upper bound is chosen, 
 
 \section*{(2)}
 \subsection*{Dual}
-% ??
+The piecewise linear formation of the dual is:
+
+\bigskip \begin{tabular}{r l}
+    minimize & $5y_1^+ + 9y_2^+ + 0z_1^+ + 0z_2^+$ \\
+    & $\infty y_1^- + \infty y_2^- + 6z_1^- + 8z_2^-$ \\
+    subject to & $-y_1 + y_2 - z_1 = 0$ \\
+    & $y_1 - 2y_2 - z_2 = 0$ \\
+\end{tabular}
+
+\subsection*{Complimentary Slackness}
+$w_1 = 5 \to y_1 = 0$
+$\\x_2 = 8 \to z_2 = 0$
+
+\bigskip Using complimentary slackness:
+
+\bigskip \begin{tabular}{r l}
+    minimize & $y_2^+ + 0z_1^+$ \\
+    & $\infty y_2^- + 6z_1^-$ \\
+    subject to & $y_2 - z_1 = 0$ \\
+    & $-2y_2 = 0$ \\
+\end{tabular}
+
+\subsection*{Solve}
+$-2y_2 = 0 \to y_2 = 0$
+$\\y_2z_1 = 0$
+
+% ?? Wrong, after looking at the problem, we can use the normal way to solve it lol, but idk if that is allowed
 
 \section*{Collaboration}
 % ?? To fill in later
