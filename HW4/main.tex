@@ -32,7 +32,7 @@
 \section*{(1)}
 \subsection*{Iteration 1}
 \subsubsection*{Draw out original problem}
-\begin{tabular}{r r|r r r r r r r}
+\[\begin{tabular}{r r|r r r r r r r}
     $l$ & & & & \fbox{0} & & \fbox{0} & & \\
     & $u$ & & & 6 & & 8 & & \\
     \hline
@@ -40,21 +40,21 @@
     \hline
     $-\infty$ & $5$ & $w_1$ & $=$ & $-x_1$ & $+$ & $x_2$ & $=$ & $0$ \\
     $-\infty$ & $9$ & $w_2$ & $=$ & $x_1$ & $-$ & $2x_2$ & $=$ & $0$ \\
-\end{tabular}
+\end{tabular}\]
 
 \subsubsection*{Determine entering variable}
 $x_2$ has positive coefficient and is at lower bound, $x_2$ enters.
 
 \subsubsection*{Determine leaving variable}
 As $x_2 \to 8$:
-$\\w_1 \to -\infty \leq x_2 \leq 5 \to x_2 = 5$
-$\\w_2 \to -\infty \leq -2x_2 \leq 9 \to x_2 = \infty$
+\[w_1 \to -\infty \leq x_2 \leq 5 \to x_2 = 5\]
+\[w_2 \to -\infty \leq -2x_2 \leq 9 \to x_2 = \infty\]
 
 \bigskip $w_1$ leaves.
 
 \subsection*{Iteration 2}
 \subsubsection*{Rewriting equation}
-\begin{tabular}{r r|r r r r r r r}
+\[\begin{tabular}{r r|r r r r r r r}
     $l$ & & & & $-\infty$ & & 0 & & \\
     & $u$ & & & \fbox{5} & & \fbox{8} & & \\
     \hline
@@ -62,43 +62,134 @@ $\\w_2 \to -\infty \leq -2x_2 \leq 9 \to x_2 = \infty$
     \hline
     $0$ & $6$ & $x_1$ & $=$ & $-w_1$ & $+$ & $x_2$ & $=$ & $3$ \\
     $-\infty$ & $9$ & $w_2$ & $=$ & $-w_1$ & $-$ & $x_2$ & $=$ & $-13$ \\
-\end{tabular}
+\end{tabular}\]
 
 \subsubsection*{Optimal}
 This is optimal since $w_1$ has positive coefficient and upper bound is chosen, and $x_2$ has coefficient of 0.
 
+\subsection*{Solution}
+\[w_1 = 5\]
+\[x_2 = 8\]
+\[x_1 = 3\]
+\[w_2 = -13\]
+\[\zeta = 5\]
+
 \section*{(2)}
+\subsection*{Primal}
+\subsubsection*{Given}
+\[c = \begin{bmatrix}
+    -1 \\
+    1 \\
+\end{bmatrix}\]
+
+\[A = \begin{bmatrix}
+    -1 & 1 \\
+    1 & -2 \\
+\end{bmatrix}\]
+
+\[b = \begin{bmatrix}
+    5 \\
+    9 \\
+\end{bmatrix}\]
+
+\[a = \begin{bmatrix}
+    -\infty \\
+    -\infty \\
+\end{bmatrix}\]
+
+\[u = \begin{bmatrix}
+    6 \\
+    8 \\
+\end{bmatrix}\]
+
+\[l = \begin{bmatrix}
+    0 \\
+    0 \\
+\end{bmatrix}\]
+
+\subsubsection*{Slack Variables}
+\[f = \begin{bmatrix}
+    0 \\
+    22 \\
+\end{bmatrix}\]
+
+\[p = \begin{bmatrix}
+    \infty \\
+    \infty \\
+\end{bmatrix}\]
+
+\[t = \begin{bmatrix}
+    3 \\
+    0 \\
+\end{bmatrix}\]
+
+\[g = \begin{bmatrix}
+    3 \\
+    0 \\
+\end{bmatrix}\]
+
 \subsection*{Dual}
-The piecewise linear formation of the dual is:
+\subsubsection*{Equations}
+\[\begin{tabular}{r l}
+    minimimze & $\begin{bmatrix}
+        5 \\
+        9 \\
+    \end{bmatrix}^Tv
+    - \begin{bmatrix}
+        -\infty \\
+        -\infty \\
+    \end{bmatrix}^Tq
+    + \begin{bmatrix}
+        6 \\
+        8 \\
+    \end{bmatrix}^Ts
+    - \begin{bmatrix}
+        0 \\
+        0 \\
+    \end{bmatrix}^Th$ \\
+    \\
+    subject to & $\begin{bmatrix}
+        -1 & 1 \\
+        1 & -2 \\
+    \end{bmatrix}^T(v-q)-(h-s)=\begin{bmatrix}
+        -1 \\
+        1 \\
+    \end{bmatrix}$
+\end{tabular}\]
 
-\bigskip \begin{tabular}{r l}
-    minimize & $5y_1^+ + 9y_2^+ + 0z_1^+ + 0z_2^+$ \\
-    & $\infty y_1^- + \infty y_2^- + 6z_1^- + 8z_2^-$ \\
-    subject to & $-y_1 + y_2 - z_1 = 0$ \\
-    & $y_1 - 2y_2 - z_2 = 0$ \\
-\end{tabular}
+\subsubsection*{Complimentary Slackness}
+\[f_2 = 22 \to v_2 = 0\]
+\[p_i \neq 0 \to q_i = 0 \ \ \forall i \in [1, m]\]
+\[t_1 = 3 \to s_1 = 0\]
+\[g_1 = 3 \to h_1 = 0\]
 
-\subsection*{Complimentary Slackness}
-$w_1 = 5 \to y_1 = 0$
-$\\x_2 = 8 \to z_2 = 0$
+\subsubsection*{Rewrite Equations Iteration 1}
+\[\begin{tabular}{r l}
+    minimimze & $5v_1$ \\
+    & $8s_2$ \\
+    \\
+    subject to & $\begin{bmatrix}
+        -1 & 1 \\
+        1 & -2 \\
+    \end{bmatrix}v-h+s=\begin{bmatrix}
+        -1 \\
+        1 \\
+    \end{bmatrix}$
+\end{tabular}\]
 
-\bigskip Using complimentary slackness:
+\subsubsection*{Rewrite Equations Iteration 2}
+\[\begin{tabular}{r l}
+    minimimze & $5v_1$ \\
+    & $8s_2$ \\
+    \\
+    subject to & $-v_1 = -1$ \\
+    & $v_1 - h_2 + s_2 = 1$ \\
+\end{tabular}\]
 
-\bigskip \begin{tabular}{r l}
-    minimize & $y_2^+ + 0z_1^+$ \\
-    & $\infty y_2^- + 6z_1^-$ \\
-    subject to & $y_2 - z_1 = 0$ \\
-    & $-2y_2 = 0$ \\
-\end{tabular}
-
-\subsection*{Solve}
-$-2y_2 = 0 \to y_2 = 0$
-$\\y_2z_1 = 0$
-
-% ?? Wrong, after looking at the problem, we can use the normal way to solve it lol, but idk if that is allowed
-
-\section*{Collaboration}
-% ?? To fill in later
+\subsubsection*{Solve}
+\[v_1 = 1\]
+\[h_2 = s_2 = 1\]
+\[\zeta = 5v_1 = 5(1) = 5\]
 
 \section*{Academic Integrity}
 On my personal integrity as a student and member of the UCD community, I have not given, nor received any unauthorized assistance on this assignment.
